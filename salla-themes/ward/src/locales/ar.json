@@ -1,0 +1,43 @@
+{
+  "blocks": {
+    "header": {
+      "cart": "السلة"
+    },
+    "appBanner": {
+      "download_now": "حمّله الآن"
+    },
+    "ward": {
+      "hero_eyebrow": "إهداء يترك أثرًا",
+      "hero_title": "تفاصيل صغيرة، لحظة لا تُنسى",
+      "hero_description": "اختر باقة أو هدية من تشكيلات متجرك، وأضف لمستك الخاصة لكل مناسبة.",
+      "hero_image_alt": "باقة ورود بدرجات عاجية وخوخية مع صندوق هدية وبطاقة فارغة",
+      "hero_cta": "اختر هديتك",
+      "hero_note": "تُعدّل الرسالة والتشكيلة بما يناسب متجرك.",
+      "hero_caption": "لحظات من القلب",
+      "hero_seal": "وَرد",
+      "occasions_eyebrow": "لمن تهدي اليوم؟",
+      "occasions_title": "لكل حكاية، باقة",
+      "occasions_description": "عدّل هذه البطاقات لتناسب مناسبات عملائك وتشكيلات متجرك."
+    }
+  },
+  "pages": {
+    "cart": {
+      "cart_options": "خيارات السلة"
+    },
+    "products": {
+      "barcode": "الباركود"
+    },
+    "order": {
+      "can_edit_or_delete_your_review_within": "يمكنك تعديل أو حذف تقييمك خلال",
+      "edit_period_ended": "تم انتهاء المدة المحددة لتعديل التقييم",
+      "delete_period_ended": "تم انتهاء المدة المحددة لحذف التقييم",
+      "days_since_added": "أيام من إضافته",
+      "option_name": "الخيار",
+      "option_content": "المحتوى"
+    }
+  },
+  "common": {
+    "bank_offer_sub_title_multiple": "ادفع قيمة مشترياتك عبر إحدى البطاقات البنكية التالية واحصل على الخصم المحدد",
+    "bank_offer_sub_title_single": "ادفع قيمة مشترياتك عبر بطاقة بنك :bank_name واحصل على الخصم المحدد"
+  }
+}

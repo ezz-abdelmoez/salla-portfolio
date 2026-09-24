@@ -1,0 +1,5 @@
+node_modules/
+.idea/
+.DS_Store
+*.log
+report.[0-9]*.json

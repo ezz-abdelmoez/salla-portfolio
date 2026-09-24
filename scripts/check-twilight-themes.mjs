@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const themes = ['leen', 'mada', 'wameed'];
+const themes = ['leen', 'mada', 'wameed', 'ward'];
 const build = process.argv.includes('--build');
 
 function runThemeCommand(slug, command) {

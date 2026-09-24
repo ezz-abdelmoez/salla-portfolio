@@ -1,0 +1,55 @@
+{#
+| Variable                  | Type   | Description                                    |
+|---------------------------|--------|------------------------------------------------|
+| component                 | object | Merchant-editable settings from twilight.json |
+| component.eyebrow         | string | Short campaign label                           |
+| component.title           | string | Main campaign headline                         |
+| component.description     | string | Supporting copy                                |
+| component.image           | string | Optional merchant-uploaded campaign image      |
+| component.image_alt       | string | Accessible image description                   |
+| component.cta_label       | string | Primary action label                           |
+| component.cta_url         | string | Salla variable-list URL                        |
+| componentId               | string | Twilight component identifier                  |
+#}
+{% set hero_eyebrow = component.eyebrow|default(trans('blocks.ward.hero_eyebrow')) %}
+{% set hero_title = component.title|default(trans('blocks.ward.hero_title')) %}
+{% set hero_description = component.description|default(trans('blocks.ward.hero_description')) %}
+{% set hero_image = component.image|default('images/ward-editorial.jpg'|asset) %}
+{% set hero_image_alt = component.image_alt|default(trans('blocks.ward.hero_image_alt')) %}
+{% set hero_cta_label = component.cta_label|default(trans('blocks.ward.hero_cta')) %}
+{% set hero_cta_url = component.cta_url|default(store.url) %}
+
+<section component-id="{{ componentId }}" data-testid="store-home-ward-gifting-hero" class="s-block ward-hero">
+    <div class="container">
+        <div class="ward-hero__grid">
+            <div class="ward-hero__copy">
+                <p class="ward-hero__eyebrow"><span aria-hidden="true"></span>{{ hero_eyebrow }}</p>
+                <h2 class="ward-hero__title">{{ hero_title }}</h2>
+                {% if hero_description %}
+                    <p class="ward-hero__description">{{ hero_description }}</p>
+                {% endif %}
+                <a class="ward-button" href="{{ hero_cta_url }}">
+                    <span>{{ hero_cta_label }}</span>
+                    <span class="ward-button__arrow" aria-hidden="true">↖</span>
+                </a>
+                <p class="ward-hero__footnote">{{ trans('blocks.ward.hero_note') }}</p>
+            </div>
+
+            <figure class="ward-hero__visual">
+                <img
+                    src="{{ hero_image }}"
+                    alt="{{ hero_image_alt }}"
+                    width="928"
+                    height="1160"
+                    fetchpriority="high"
+                    loading="eager"
+                >
+                <figcaption class="ward-hero__caption">
+                    <span>{{ trans('blocks.ward.hero_caption') }}</span>
+                    <span aria-hidden="true">01 / 03</span>
+                </figcaption>
+                <span class="ward-hero__seal" aria-hidden="true">{{ trans('blocks.ward.hero_seal') }}</span>
+            </figure>
+        </div>
+    </div>
+</section>

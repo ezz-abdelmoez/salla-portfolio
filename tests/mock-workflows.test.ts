@@ -80,6 +80,11 @@ describe("mock-first store workflows", () => {
     expect(wameed.description).toContain("مسودة");
     expect(wameed.compatibilityNote).toContain("غير مرتبطة بحساب شريك سلة");
 
+    const ward = await api.get("ward");
+    expect(ward.name).toBe("وَرد");
+    expect(ward.description).toContain("مسودة");
+    expect(ward.compatibilityNote).toContain("لا تتصل بالشحن");
+
     await expect(api.get("not-a-theme")).rejects.toMatchObject({ status: 404, code: "NOT_FOUND" });
   });
 

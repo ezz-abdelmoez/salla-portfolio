@@ -1,0 +1,43 @@
+{
+  "blocks": {
+    "header": {
+      "cart": "Cart"
+    },
+    "appBanner": {
+      "download_now": "Download now"
+    },
+    "ward": {
+      "hero_eyebrow": "A gift that says it for you",
+      "hero_title": "Small details. A moment remembered.",
+      "hero_description": "Explore bouquets and thoughtful gifts from your store, with a personal touch for every occasion.",
+      "hero_image_alt": "Ivory and peach roses with a small gift box and a blank note card",
+      "hero_cta": "Find a thoughtful gift",
+      "hero_note": "Edit the message and collection for your store.",
+      "hero_caption": "Made for meaningful moments",
+      "hero_seal": "The Ward edit",
+      "occasions_eyebrow": "Who are you celebrating?",
+      "occasions_title": "A bouquet for every story",
+      "occasions_description": "Edit these cards to reflect your occasions and the products in your store."
+    }
+  },
+  "pages": {
+    "cart": {
+      "cart_options": "Cart Options"
+    },
+    "products": {
+      "barcode": "Barcode"
+    },
+    "order": {
+      "can_edit_or_delete_your_review_within": "You can edit or delete your review within",
+      "edit_period_ended": "The period to edit the review has ended",
+      "delete_period_ended": "The period to delete the review has ended",
+      "days_since_added": "days since it was added",
+      "option_name": "Option name",
+      "option_content": "Content"
+    }
+  },
+  "common": {
+    "bank_offer_sub_title_multiple": "Pay for your purchases with one of the following bank cards and get the stated discount.",
+    "bank_offer_sub_title_single": "Pay for your purchases with :bank_name and get the stated discount."
+  }
+}
