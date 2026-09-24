@@ -10,6 +10,7 @@
     "test:mock": "vitest run tests/mock-workflows.test.ts",
     "check:twilight": "node scripts/check-twilight-themes.mjs",
     "build:twilight": "node scripts/check-twilight-themes.mjs --build",
+    "check:theme-release-readiness": "node scripts/check-twilight-themes.mjs --build && node scripts/check-salla-theme-release-readiness.mjs",
     "export:twilight": "node scripts/export-twilight-theme.mjs"
   },
   "dependencies": {

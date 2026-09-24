@@ -1258,8 +1258,8 @@
     {
       "key": "541cc423-90c7-4230-8a33-a0342cfde4ad",
       "title": {
-        "en": "Custom testimonials",
-        "ar": "آراء عملاء مخصصة"
+        "en": "Customer testimonials",
+        "ar": "آراء العملاء المخصصة"
       },
       "icon": "sicon-chat-bubbles",
       "path": "home.custom-testimonials",
@@ -1278,36 +1278,11 @@
           "type": "collection",
           "format": "collection",
           "label": "التقييمات",
-          "description": null,
+          "description": "أضف آراء حقيقية فقط بعد موافقة أصحابها، وتأكد من صحة الأسماء والتقييمات. Use genuine reviews only, with customer consent.",
           "labelHTML": null,
           "item_label": "التقييم",
           "icon": "sicon-list-add",
-          "value": [
-            {
-              "items.name": "ندى الحسيني",
-              "items.avatar": "https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_female.png",
-              "items.stars": 5,
-              "items.text": "وصلتني اليوم  وطلعت جميلة متحمسة أجربها ❤️"
-            },
-            {
-              "items.name": "خالد الأحمد",
-              "items.avatar": "https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png",
-              "items.stars": 5,
-              "items.text": "اشتريت من هنا لعيالي وصراحة شئ لا يعلى عليه 👏"
-            },
-            {
-              "items.name": "خالد المسعودي",
-              "items.avatar": "https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png",
-              "items.stars": 5,
-              "items.text": "رهيبين يفكون أزمة. 👌"
-            },
-            {
-              "items.name": "عبدالعزيز اليامي",
-              "items.avatar": "https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png",
-              "items.stars": 5,
-              "items.text": "أحب هذا المتجر وتعاملهم الراقي مع العملاء ❤️"
-            }
-          ],
+          "value": [],
           "fields": [
             {
               "id": "items.name",
@@ -1334,7 +1309,7 @@
               "placeholder": "e.g. https://hostname.com/image.png",
               "icon": "sicon-image",
               "value": null,
-              "required": true
+              "required": false
             },
             {
               "id": "items.stars",
@@ -1346,7 +1321,7 @@
               "labelHTML": "من 1 إلى 5",
               "placeholder": "القيمة",
               "icon": "sicon-pencil-ruler",
-              "value": 5,
+              "value": null,
               "required": false,
               "minimum": 1,
               "maximum": 5
