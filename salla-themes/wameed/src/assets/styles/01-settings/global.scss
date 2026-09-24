@@ -1,0 +1,28 @@
+
+// Colors
+$main-color: var(--color-primary);
+$infinte-color: var(--infinte-color);
+$main-text-color: var(--main-text-color);
+
+:root {
+  --infinte-color: #c9c9c9;
+  --main-text-color: #102a43;
+  --main-text-color-dark: #071a2b;
+
+  /* Wameed's midnight, electric blue, and cool neutral palette. */
+  --color-primary: #2455d6;
+  --color-primary-d: #153b9f;
+  --color-primary-l: #5e83ed;
+  --color-primary-reverse: #ffffff;
+  --color-text: #60788d;
+  --bg-gray: #102a430d;
+  --color-grey: #f2f7fa;
+  --color-light-grey: #e8f0f5;
+  /* font-size */
+  --font-sm: 0.8685714286rem;
+  /* font-family: ; */
+  --font-main: "DINNextLTArabic";
+
+  /* plugins */
+  --mm-ocd-width: calc(100% - 51px);
+}

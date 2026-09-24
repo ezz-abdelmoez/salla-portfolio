@@ -1,0 +1,340 @@
+/* Wameed — a precise, modern visual system for electronics and smart-device stores. */
+:root {
+  --wameed-ink: #102a43;
+  --wameed-night: #071a2b;
+  --wameed-paper: #f2f7fa;
+  --wameed-muted: #60788d;
+  --wameed-line: rgba(16, 42, 67, 0.14);
+  --wameed-cyan: #68e0d0;
+  --wameed-blue: #4d83ff;
+  --wameed-radius: 1.25rem;
+}
+
+body {
+  color: var(--wameed-ink);
+  background: #fff;
+}
+
+.store-header {
+  border-bottom: 1px solid var(--wameed-line);
+  background: #fff;
+}
+
+.store-header .main-nav-container {
+  box-shadow: none;
+}
+
+.store-header .top-navbar {
+  border-bottom: 1px solid var(--wameed-line);
+}
+
+.navbar-brand img {
+  max-height: 46px;
+}
+
+.wameed-hero {
+  padding-block: clamp(1rem, 3vw, 2.5rem) clamp(2.5rem, 6vw, 5rem);
+}
+
+.wameed-hero__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  overflow: hidden;
+  border-radius: var(--wameed-radius);
+  background: var(--wameed-night);
+  isolation: isolate;
+}
+
+.wameed-hero__grid::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 0 45%;
+  background-image: linear-gradient(rgba(104, 224, 208, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(104, 224, 208, 0.06) 1px, transparent 1px);
+  background-size: 34px 34px;
+  content: "";
+  mask-image: linear-gradient(90deg, #000, transparent 88%);
+}
+
+.wameed-hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 5.5rem);
+  color: #fff;
+}
+
+.wameed-hero__eyebrow,
+.wameed-pillars__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1.2rem;
+  color: var(--wameed-cyan);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.wameed-hero__eyebrow span {
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.wameed-hero__title {
+  max-width: 12ch;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.35rem, 4.65vw, 4.7rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+}
+
+.wameed-hero__description {
+  max-width: 32rem;
+  margin: 1.15rem 0 0;
+  color: #c8d8e5;
+  font-size: clamp(0.95rem, 1.15vw, 1.08rem);
+  line-height: 1.95;
+}
+
+.wameed-button {
+  display: inline-flex;
+  min-height: 3.2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+  margin-top: 1.8rem;
+  padding: 0.8rem 1.35rem;
+  border: 1px solid var(--wameed-cyan);
+  border-radius: 0.55rem;
+  background: var(--wameed-cyan);
+  color: var(--wameed-night);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.wameed-button:hover,
+.wameed-button:focus-visible {
+  transform: translateY(-2px);
+  background: transparent;
+  color: #fff;
+}
+
+.wameed-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.wameed-button__arrow {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.wameed-hero__footnote {
+  margin: 1rem 0 0;
+  color: #9db4c8;
+  font-size: 0.76rem;
+}
+
+.wameed-hero__visual {
+  position: relative;
+  min-height: 35rem;
+  margin: 0;
+  overflow: hidden;
+  background: #102a43;
+}
+
+.wameed-hero__visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 35rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.wameed-hero__visual::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 26, 43, 0.08) 50%, rgba(7, 26, 43, 0.72));
+  content: "";
+  pointer-events: none;
+}
+
+.wameed-hero__caption {
+  position: absolute;
+  z-index: 1;
+  inset-inline: 1.15rem;
+  bottom: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.7rem;
+  background: rgba(7, 26, 43, 0.72);
+  color: #fff;
+  font-size: 0.76rem;
+  backdrop-filter: blur(10px);
+}
+
+.wameed-hero__seal {
+  position: absolute;
+  z-index: 1;
+  top: 1.2rem;
+  inset-inline-start: 1.2rem;
+  display: grid;
+  width: 4.5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: rgba(7, 26, 43, 0.62);
+  color: #fff;
+  font-size: 0.65rem;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.wameed-pillars {
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+  background: var(--wameed-paper);
+}
+
+.wameed-pillars__intro {
+  max-width: 46rem;
+  margin: 0 auto clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+}
+
+.wameed-pillars__eyebrow {
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  color: #177f84;
+}
+
+.wameed-pillars__intro h2 {
+  margin: 0;
+  color: var(--wameed-ink);
+  font-size: clamp(1.8rem, 3.1vw, 2.85rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+}
+
+.wameed-pillars__intro > p:last-child {
+  max-width: 38rem;
+  margin: 1rem auto 0;
+  color: var(--wameed-muted);
+  line-height: 1.9;
+}
+
+.wameed-pillars__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.wameed-pillar {
+  min-height: 16rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--wameed-line);
+  border-radius: 1rem;
+  background: #fff;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.wameed-pillar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px rgba(16, 42, 67, 0.08);
+}
+
+.wameed-pillar__index {
+  display: inline-grid;
+  width: 2.65rem;
+  aspect-ratio: 1;
+  place-items: center;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(23, 127, 132, 0.32);
+  border-radius: 0.8rem;
+  background: #e7f6f4;
+  color: #177f84;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.wameed-pillar h3 {
+  margin: 0;
+  color: var(--wameed-ink);
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.wameed-pillar p {
+  max-width: 24rem;
+  margin: 0.8rem 0 0;
+  color: var(--wameed-muted);
+  font-size: 0.91rem;
+  line-height: 1.85;
+}
+
+.store-footer__inner a,
+.store-footer__inner h3 {
+  color: inherit;
+}
+
+@media (max-width: 767px) {
+  .wameed-hero {
+    padding-top: 0.75rem;
+  }
+
+  .wameed-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+    border-radius: 0.9rem;
+  }
+
+  .wameed-hero__copy {
+    padding: 2.3rem 1.5rem 2.6rem;
+  }
+
+  .wameed-hero__title {
+    max-width: 13ch;
+    font-size: clamp(2.35rem, 10.5vw, 3.45rem);
+  }
+
+  .wameed-hero__visual,
+  .wameed-hero__visual img {
+    min-height: 0;
+  }
+
+  .wameed-hero__visual img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .wameed-pillars__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .wameed-pillar {
+    min-height: 0;
+    padding: 1.5rem;
+  }
+
+  .wameed-pillar__index {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wameed-button,
+  .wameed-pillar,
+  .s-product-card-entry {
+    transition: none;
+  }
+}

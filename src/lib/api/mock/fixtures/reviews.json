@@ -1,0 +1,22 @@
+[
+  {"id":"r-leen-1","themeId":"theme-leen","authorName":"زائر تجريبي","rating":5,"title":"المعاينة مرتبة","body":"التصميم هادئ ويعطي صور المنتجات مساحة واضحة.","createdAt":"2026-08-20","isDemo":true},
+  {"id":"r-leen-2","themeId":"theme-leen","authorName":"تاجر تجريبي","rating":4,"title":"هوية أنيقة","body":"أحببت التوازن بين المساحات الفاتحة والعناوين.","createdAt":"2026-08-22","isDemo":true},
+  {"id":"r-mada-1","themeId":"theme-mada","authorName":"زائر تجريبي","rating":5,"title":"ألوان مريحة","body":"المعاينة مناسبة جدًا لفئة العناية والجمال.","createdAt":"2026-09-03","isDemo":true},
+  {"id":"r-mada-2","themeId":"theme-mada","authorName":"تاجر تجريبي","rating":4,"title":"واضح وسهل","body":"التصفح منظم والتصميم يركز على المنتج.","createdAt":"2026-09-04","isDemo":true},
+  {"id":"r-mahad-1","themeId":"theme-mahad","authorName":"زائر تجريبي","rating":5,"title":"خامة التصميم جميلة","body":"الألوان الطبيعية تعطي المعاينة إحساسًا دافئًا.","createdAt":"2026-07-27","isDemo":true},
+  {"id":"r-mahad-2","themeId":"theme-mahad","authorName":"تاجر تجريبي","rating":4,"title":"مساحة ممتازة للصور","body":"يعجبني أن الصور واضحة من دون ازدحام.","createdAt":"2026-07-29","isDemo":true},
+  {"id":"r-qahwa-1","themeId":"theme-qahwa","authorName":"زائر تجريبي","rating":5,"title":"ستايل دافئ","body":"الألوان متناسقة مع المقاهي والمنتجات الغذائية.","createdAt":"2026-08-31","isDemo":true},
+  {"id":"r-qahwa-2","themeId":"theme-qahwa","authorName":"تاجر تجريبي","rating":4,"title":"بسيط وواضح","body":"واجهة نظيفة وسهلة القراءة في المعاينة.","createdAt":"2026-09-01","isDemo":true},
+  {"id":"r-wameed-1","themeId":"theme-wameed","authorName":"زائر تجريبي","rating":5,"title":"المعلومات مرتبة","body":"التصميم يعطي مساحة جيدة للتفاصيل والمواصفات.","createdAt":"2026-08-14","isDemo":true},
+  {"id":"r-wameed-2","themeId":"theme-wameed","authorName":"تاجر تجريبي","rating":4,"title":"طابع تقني جميل","body":"الألوان مناسبة لفئات الإلكترونيات.","createdAt":"2026-08-15","isDemo":true},
+  {"id":"r-ward-1","themeId":"theme-ward","authorName":"زائر تجريبي","rating":5,"title":"ناعم ومبهج","body":"أحببت المساحة الواسعة للصور واللون الهادئ.","createdAt":"2026-07-20","isDemo":true},
+  {"id":"r-ward-2","themeId":"theme-ward","authorName":"تاجر تجريبي","rating":4,"title":"عرض لطيف للمناسبات","body":"المعاينة توضح شكلًا جميلًا لمتجر الهدايا.","createdAt":"2026-07-22","isDemo":true},
+  {"id":"r-tibr-1","themeId":"theme-tibr","authorName":"زائر تجريبي","rating":5,"title":"فخم من غير مبالغة","body":"التباين البسيط يبرز صور المنتجات بشكل جميل.","createdAt":"2026-09-06","isDemo":true},
+  {"id":"r-tibr-2","themeId":"theme-tibr","authorName":"تاجر تجريبي","rating":4,"title":"تصميم أنيق","body":"التخطيط هادئ ويساعد على التركيز على التفاصيل.","createdAt":"2026-09-07","isDemo":true},
+  {"id":"r-tamrah-1","themeId":"theme-tamrah","authorName":"زائر تجريبي","rating":5,"title":"لمسة محلية جميلة","body":"الدرجات الدافئة مناسبة للمنتجات الغذائية المحلية.","createdAt":"2026-08-08","isDemo":true},
+  {"id":"r-tamrah-2","themeId":"theme-tamrah","authorName":"تاجر تجريبي","rating":4,"title":"تفاصيل منظمة","body":"أعجبتني مساحة عرض القصة ومعلومات المنتج.","createdAt":"2026-08-09","isDemo":true},
+  {"id":"r-rawaq-1","themeId":"theme-rawaq","authorName":"زائر تجريبي","rating":5,"title":"مريح بصريًا","body":"الألوان والخطوط تعطي التصميم طابعًا راقيًا.","createdAt":"2026-07-01","isDemo":true},
+  {"id":"r-rawaq-2","themeId":"theme-rawaq","authorName":"تاجر تجريبي","rating":4,"title":"يعرض القطع بشكل جميل","body":"المساحات الكبيرة تناسب صور الأثاث والديكور.","createdAt":"2026-07-04","isDemo":true},
+  {"id":"r-nada-1","themeId":"theme-nada","authorName":"زائر تجريبي","rating":5,"title":"خفيف ومشرق","body":"واجهة لطيفة لتجربة متجر عناية بسيطة.","createdAt":"2026-09-09","isDemo":true},
+  {"id":"r-nada-2","themeId":"theme-nada","authorName":"تاجر تجريبي","rating":4,"title":"سهل التصفح","body":"التصميم واضح ويعمل بشكل جميل في المعاينة.","createdAt":"2026-09-10","isDemo":true}
+]
