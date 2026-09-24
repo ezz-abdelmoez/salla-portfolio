@@ -36,7 +36,7 @@ describe("mock-first store workflows", () => {
     const home = await createHomeEndpoints(makeClient()).getContent();
     expect(home.title).toContain("متجرك");
     expect(home.benefits.length).toBeGreaterThanOrEqual(4);
-    expect(home.featuredThemeIds).toContain("theme-leen");
+    expect(home.featuredThemeIds).toEqual(expect.arrayContaining(["theme-leen", "theme-mada", "theme-wameed", "theme-ward", "theme-qahwa"]));
   });
 
   it("returns categories with counts computed from the published theme fixtures", async () => {
@@ -52,6 +52,9 @@ describe("mock-first store workflows", () => {
     const all = await api.list({ page: 1, pageSize: 20 });
     expect(all.meta.total).toBe(10);
     expect(all.items).toHaveLength(10);
+    for (const slug of ["leen", "mada", "wameed", "ward", "qahwa"]) {
+      expect(all.items.find((theme) => theme.slug === slug)?.demoPreviewPath).toBe(`/themes/${slug}/preview`);
+    }
 
     const arabicSearch = await api.list({ search: "عبايات", pageSize: 12 });
     expect(arabicSearch.items.map((theme) => theme.slug)).toContain("leen");

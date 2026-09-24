@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Heart, Plus, Star, Check } from "lucide-react";
+import { Eye, Heart, Plus, Star, Check } from "lucide-react";
 import { toast } from "sonner";
 import type { ThemeSummaryDto } from "@/lib/api/contracts/theme";
 import { formatPrice } from "@/lib/utils";
@@ -57,6 +57,7 @@ export function ThemeCard({ theme, index = 0 }: { theme: ThemeSummaryDto; index?
             <span>{inCart ? "في السلة" : "أضف للسلة"}</span>
           </button>
         </div>
+        <Link className="theme-card-preview-cta" href={theme.demoPreviewPath ?? `/themes/${theme.slug}/preview`}><Eye size={14} /> معاينة المتجر التفاعلية</Link>
       </div>
     </article>
   );

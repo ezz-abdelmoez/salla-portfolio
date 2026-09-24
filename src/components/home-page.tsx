@@ -22,7 +22,7 @@ export function HomePage({ initialHome, initialCategories, initialThemes }: { in
   if (home.isError || !home.data) return <div className="page-shell"><QueryError onRetry={() => home.refetch()} /></div>;
 
   const content = home.data;
-  const featured = themes.data?.items.filter((theme) => content.featuredThemeIds.includes(theme.id)).slice(0, 4) ?? [];
+  const featured = themes.data?.items.filter((theme) => content.featuredThemeIds.includes(theme.id)).slice(0, 5) ?? [];
   const heroTheme = themes.data?.items.find((theme) => theme.slug === "leen") ?? themes.data?.items[0];
   const categoryItems = categories.data?.filter((item) => content.categoryIds.includes(item.id)) ?? [];
   const titleLines = content.title.split(". ");

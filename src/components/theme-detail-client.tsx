@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, ArrowUpLeft, Check, ChevronDown, Heart, LoaderCircle, ShieldCheck, ShoppingBag, Sparkles, Star, X } from "lucide-react";
+import { ArrowLeft, ArrowUpLeft, Check, ChevronDown, Eye, Heart, LoaderCircle, ShieldCheck, ShoppingBag, Sparkles, Star, X } from "lucide-react";
 import { toast } from "sonner";
 import { useTheme, useThemeReviews, useRelatedThemes } from "@/lib/api/modules/themes/hooks";
 import type { ThemeDetailDto } from "@/lib/api/contracts/theme";
@@ -62,6 +62,7 @@ export function ThemeDetailClient({ slug, initialTheme }: { slug: string; initia
           <div className="product-preview-shell"><ThemePreview theme={theme} size="detail" /></div>
           <div className="preview-actions-row"><div className="preview-tabs" role="tablist" aria-label="اختيار شكل المعاينة"><button role="tab" aria-selected={view === "desktop"} className={view === "desktop" ? "is-active" : ""} onClick={() => setView("desktop")}>سطح المكتب</button><button role="tab" aria-selected={view === "mobile"} className={view === "mobile" ? "is-active" : ""} onClick={() => setView("mobile")}>الجوال</button></div><button className="text-button" onClick={() => setPreviewOpen(true)}>معاينة أكبر <ArrowUpLeft size={15} /></button></div>
           <div className={`secondary-preview secondary-preview--${view}`}><ThemePreview theme={theme} size={view === "mobile" ? "mobile" : "card"} showToolbar={false} /></div>
+          <Link className="button button--outline detail-live-preview-link" href={theme.demoPreviewPath ?? `/themes/${theme.slug}/preview`}><Eye size={16} /> افتح معاينة المتجر التفاعلية <ArrowUpLeft size={15} /></Link>
         </div>
         <div className="product-info-column">
           <div className="product-kicker"><span className="product-kicker-line" />{theme.categoryName}<span className="demo-pill">بيانات تجريبية</span></div>
@@ -74,7 +75,7 @@ export function ThemeDetailClient({ slug, initialTheme }: { slug: string; initia
             <button className="button button--primary button--full button--large" onClick={handleAdd} disabled={addToCart.isPending}>{addToCart.isPending ? <LoaderCircle size={17} className="spin" /> : inCart ? <Check size={17} /> : <ShoppingBag size={17} />}{inCart ? "موجود في السلة — راجعها" : "أضف للسلة التجريبية"}</button>
             <button className={`button button--outline button--full ${isFavorite ? "favorite-active-button" : ""}`} onClick={handleFavorite}><Heart size={16} fill={isFavorite ? "currentColor" : "none"} />{isFavorite ? "أُضيف للمفضلة" : "أضف للمفضلة"}</button>
           </div>
-          <div className="product-mini-trust"><div><ShieldCheck size={16} /><span>تفاصيل ومتطلبات واضحة</span></div><div><Sparkles size={16} /><span>معاينة محلية غير تفاعلية</span></div></div>
+          <div className="product-mini-trust"><div><ShieldCheck size={16} /><span>تفاصيل ومتطلبات واضحة</span></div><div><Sparkles size={16} /><span>معاينة متجر محلية تفاعلية</span></div></div>
           <DemoNotice>طلب تجريبي فقط. لا يتم تحصيل مبلغ أو تفعيل أو تنزيل أي ثيم.</DemoNotice>
         </div>
       </section>
