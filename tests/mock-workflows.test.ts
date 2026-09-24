@@ -59,6 +59,11 @@ describe("mock-first store workflows", () => {
     const fashion = await api.list({ category: "fashion", pageSize: 12 });
     expect(fashion.items.map((theme) => theme.slug).sort()).toEqual(["leen", "tibr"]);
 
+    const coffee = await api.list({ search: "قهوة", pageSize: 12 });
+    expect(coffee.items.map((theme) => theme.slug)).toContain("qahwa");
+    const food = await api.list({ category: "food", pageSize: 12 });
+    expect(food.items.map((theme) => theme.slug).sort()).toEqual(["qahwa", "tamrah"]);
+
     const free = await api.list({ priceType: "free", pageSize: 12 });
     expect(free.items.map((theme) => theme.slug).sort()).toEqual(["nada", "qahwa"]);
 

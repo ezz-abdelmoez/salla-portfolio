@@ -24,12 +24,13 @@ corepack pnpm build
 
 ## مسودات Twilight محلية
 
-توجد أربع مسودات Twilight داخل `salla-themes/`، منفصلة عن كتالوج نَسَق التجريبي:
+توجد خمس مسودات Twilight داخل `salla-themes/`، منفصلة عن كتالوج نَسَق التجريبي:
 
 - **لِين** للعبايات والأزياء: [`salla-themes/leen/`](./salla-themes/leen/)
 - **مَدى** للجمال والعناية: [`salla-themes/mada/`](./salla-themes/mada/)
 - **وَميض** للإلكترونيات والأجهزة الذكية: [`salla-themes/wameed/`](./salla-themes/wameed/)
 - **وَرد** للزهور والهدايا والمناسبات: [`salla-themes/ward/`](./salla-themes/ward/)
+- **قهوة** للمحمصات ومتاجر القهوة المختصة: [`salla-themes/qahwa/`](./salla-themes/qahwa/)
 
 كلها مسودات محلية مبنية على Theme Raed وبها مكوّنات قابلة للتخصيص. لم يُربط أي منها بحساب شريك سلة أو متجر معاينة؛ لذلك لم تُختبر على متجر سلة أو تُقدّم أو تُعتمد، ولا ينبغي اعتبارها جاهزة للتثبيت.
 
@@ -47,6 +48,7 @@ corepack pnpm export:twilight -- leen ../leen-twilight-theme
 corepack pnpm export:twilight -- mada ../mada-twilight-theme
 corepack pnpm export:twilight -- wameed ../wameed-twilight-theme
 corepack pnpm export:twilight -- ward ../ward-twilight-theme
+corepack pnpm export:twilight -- qahwa ../qahwa-twilight-theme
 ```
 
-راجع ملفات README داخل مجلدات الثيمات وخطط الانتقال للمعاينة: [`لِين`](./docs/SALLA_THEME_FIRST_DRAFT.md)، [`مَدى`](./docs/SALLA_THEME_SECOND_DRAFT.md)، [`وَميض`](./docs/SALLA_THEME_THIRD_DRAFT.md)، و[`وَرد`](./docs/SALLA_THEME_FOURTH_DRAFT.md).
+راجع ملفات README داخل مجلدات الثيمات وخطط الانتقال للمعاينة: [`لِين`](./docs/SALLA_THEME_FIRST_DRAFT.md)، [`مَدى`](./docs/SALLA_THEME_SECOND_DRAFT.md)، [`وَميض`](./docs/SALLA_THEME_THIRD_DRAFT.md)، [`وَرد`](./docs/SALLA_THEME_FOURTH_DRAFT.md)، و[`قهوة`](./docs/SALLA_THEME_FIFTH_DRAFT.md).

@@ -6,10 +6,10 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 if (args[0] === '--') args.shift();
 const [slug, destinationArg] = args;
-const allowedThemes = new Set(['leen', 'mada', 'wameed', 'ward']);
+const allowedThemes = new Set(['leen', 'mada', 'wameed', 'ward', 'qahwa']);
 
 if (!allowedThemes.has(slug) || !destinationArg) {
-  console.error('Usage: corepack pnpm export:twilight -- <leen|mada|wameed|ward> <new-empty-destination>');
+  console.error('Usage: corepack pnpm export:twilight -- <leen|mada|wameed|ward|qahwa> <new-empty-destination>');
   process.exit(2);
 }
 
