@@ -43,6 +43,11 @@ export const previewProductsBySlug: Record<string, DemoPreviewProduct[]> = {
     ["qahwa-drip", "مجموعة التقطير", "Pour-over Set", "عدة تحضير قابلة للتخصيص", "A customizable brewing setup", 185, "أدوات التحضير", "Brewing"],
     ["qahwa-cup", "كوب اليوم", "Daily Cup", "تفاصيل المنتج يحررها التاجر", "Product details are merchant-editable", 54, "أدوات التحضير", "Brewing"],
   ]),
+  misk: products([
+    ["misk-edp", "عطر أثر", "Athar Eau de Parfum", "بيانات النوتات والتركيز تُضاف من مصدر العلامة", "Add verified notes and concentration from the brand", 289, "عطور", "Fragrance"],
+    ["misk-oud", "نفحات عود", "Oud Notes", "تفاصيل المصدر والمكونات يحررها التاجر", "Merchant-editable origin and ingredient details", 365, "عود", "Oud"],
+    ["misk-bakhoor", "بخور الدار", "Home Bakhoor", "معلومات الاستخدام تُستبدل بوصف موثق", "Replace usage details with verified product copy", 145, "بخور", "Bakhoor"],
+  ]),
 };
 
 export const fallbackProductsByCategory: Record<string, DemoPreviewProduct[]> = {
@@ -109,6 +114,10 @@ export const englishStorefrontCopy: Record<string, StorefrontCopy> = {
     themeName: "Qahwa", storeName: "Samt Roastery", category: "Coffee & Roastery", headline: "From bean to your moment", tagline: "Coffee, slowly; every detail from its source.", announcement: "A fresh roast, a slower moment — explore the edit", heroDescription: "A warm editorial storefront concept for coffee roasters and brewing gear.", storyTitle: "Good coffee starts with clear details", storyDescription: "A dedicated space for merchant-edited origin, roast, and brewing information.", productTitle: "Coffee & brewing", productDescription: "Sample products and prices are placeholders for the preview.", searchPlaceholder: "Search coffee and brewing gear", navHome: "Home", navShop: "Shop", navStory: "Our story", cta: "Explore the harvest", features: ["Editable origin notes", "Space for roast and brew details", "A warm, product-led layout"],
     module: moduleCopy("Origin, roast & brew", "Tell the coffee story clearly", "Use verified details only; this sample preview does not verify product claims.", [{ label: "Origin", value: "Add verified supplier details" }, { label: "Roast", value: "Use the product's actual roast profile" }, { label: "Brew", value: "Add a merchant-supplied suggestion" }]),
   },
+  misk: {
+    themeName: "Misk", storeName: "Misk Atelier", category: "Fragrance & Oud", headline: "A signature that lingers", tagline: "Fragrance, told through its notes.", announcement: "Discover a new fragrance story", heroDescription: "An editorial storefront concept for perfumes, oud, and bakhoor.", storyTitle: "Every note has a place", storyDescription: "A clear, adaptable space for brand stories and verified fragrance details.", productTitle: "The fragrance edit", productDescription: "Sample products and prices are placeholders for the preview.", searchPlaceholder: "Search fragrances and oud", navHome: "Home", navShop: "Shop", navStory: "Our story", cta: "Explore the fragrances", features: ["Browse by scent category", "Space for verified fragrance notes", "A refined responsive layout"],
+    module: moduleCopy("Scent notes", "Every note in its place", "Only add notes and concentration details verified by the brand or supplier.", [{ label: "Top notes", value: "Merchant-verified details" }, { label: "Heart", value: "Use the confirmed product profile" }, { label: "Concentration", value: "Match the product label" }]),
+  },
 };
 
 export const arabicStorefrontModules: Record<string, ModuleCopy> = {
@@ -117,6 +126,7 @@ export const arabicStorefrontModules: Record<string, ModuleCopy> = {
   wameed: moduleCopy("تفاصيل تقنية", "المواصفات التي تهمك", "لا تعرض مواصفات إلا بعد مطابقتها مع المصدر الرسمي للمنتج.", [{ label: "التوافق", value: "تحقق منه لكل منتج" }, { label: "الضمان", value: "أضف شروط المتجر الفعلية" }, { label: "المواصفات", value: "راجع مصدر الشركة المصنعة" }]),
   ward: moduleCopy("لمسة شخصية", "اجعل الهدية أقرب", "هذه خيارات عرض فقط؛ إعداد تنفيذ الطلبات يكون من أدوات المتجر الفعلية.", [{ label: "المناسبة", value: "خيارات يحددها التاجر" }, { label: "رسالة الإهداء", value: "نص تجريبي قابل للتعديل" }, { label: "التغليف", value: "صف الخيار المتاح فعليًا" }]),
   qahwa: moduleCopy("المنشأ والتحميص والتحضير", "عرّف قهوتك كما هي", "استخدم بيانات موثقة فقط؛ لا تتحقق هذه المعاينة من معلومات المنتج.", [{ label: "المنشأ", value: "أضف بيانات المورد الموثقة" }, { label: "التحميص", value: "استخدم مستوى التحميص الفعلي" }, { label: "التحضير", value: "أضف اقتراحًا من المتجر" }]),
+  misk: moduleCopy("طبقات العطر", "كل نوتة في مكانها", "أضف معلومات موثقة من العلامة أو المورد، فهذه المعاينة لا تتحقق من تفاصيل العطر.", [{ label: "النوتات العليا", value: "بيانات يضيفها التاجر" }, { label: "قلب العطر", value: "انقلها من وصف المنتج الموثق" }, { label: "التركيز", value: "طابق بطاقة المنتج الفعلية" }]),
 };
 
 export const previewChrome = {

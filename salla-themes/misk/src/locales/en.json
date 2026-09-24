@@ -1,0 +1,43 @@
+{
+  "blocks": {
+    "header": {
+      "cart": "Cart"
+    },
+    "appBanner": {
+      "download_now": "Download now"
+    },
+    "misk": {
+      "hero_eyebrow": "Fragrance, thoughtfully selected",
+      "hero_title": "A signature that lingers",
+      "hero_description": "Explore your store’s fragrances with clear notes and concentration details from the brand.",
+      "hero_image_alt": "An amber perfume bottle on pale stone beside oud wood and a rose petal",
+      "hero_cta": "Explore fragrances",
+      "hero_note": "Add notes and ingredient sources from verified brand information.",
+      "hero_caption": "A fragrance, with its own story",
+      "hero_seal": "Misk",
+      "notes_eyebrow": "Scent notes",
+      "notes_title": "Every note in its place",
+      "notes_description": "Use information verified by the brand or supplier, and edit these cards for your store."
+    }
+  },
+  "pages": {
+    "cart": {
+      "cart_options": "Cart Options"
+    },
+    "products": {
+      "barcode": "Barcode"
+    },
+    "order": {
+      "can_edit_or_delete_your_review_within": "You can edit or delete your review within",
+      "edit_period_ended": "The period to edit the review has ended",
+      "delete_period_ended": "The period to delete the review has ended",
+      "days_since_added": "days since it was added",
+      "option_name": "Option name",
+      "option_content": "Content"
+    }
+  },
+  "common": {
+    "bank_offer_sub_title_multiple": "Pay for your purchases with one of the following bank cards and get the stated discount.",
+    "bank_offer_sub_title_single": "Pay for your purchases with :bank_name and get the stated discount."
+  }
+}

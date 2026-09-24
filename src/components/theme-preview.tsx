@@ -8,7 +8,7 @@ type ThemePreviewProps = {
   showToolbar?: boolean;
 };
 
-const editorialSlugs = new Set(["leen", "mada", "wameed", "ward", "qahwa"]);
+const editorialSlugs = new Set(["leen", "mada", "wameed", "ward", "qahwa", "misk"]);
 
 export function ThemePreview({ theme, size = "card", showToolbar = true }: ThemePreviewProps) {
   const palette = theme.previewPalette;

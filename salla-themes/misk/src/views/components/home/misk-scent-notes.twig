@@ -1,0 +1,40 @@
+{#
+| Variable                  | Type     | Description                                    |
+|---------------------------|----------|------------------------------------------------|
+| component                 | object   | Merchant-editable settings from twilight.json |
+| component.eyebrow         | string   | Introductory label                             |
+| component.title           | string   | Section heading                                |
+| component.description     | string   | Supporting copy                                |
+| component.items           | object[] | Three or four editable fragrance details       |
+| componentId               | string   | Twilight component identifier                  |
+#}
+{% set notes_eyebrow = component.eyebrow|default(trans('blocks.misk.notes_eyebrow')) %}
+{% set notes_title = component.title|default(trans('blocks.misk.notes_title')) %}
+{% set notes_description = component.description|default(trans('blocks.misk.notes_description')) %}
+
+<section component-id="{{ componentId }}" data-testid="store-home-misk-scent-notes" class="s-block misk-notes">
+    <div class="container">
+        <div class="misk-notes__intro">
+            <p class="misk-notes__eyebrow">{{ notes_eyebrow }}</p>
+            <h2>{{ notes_title }}</h2>
+            {% if notes_description %}
+                <p>{{ notes_description }}</p>
+            {% endif %}
+        </div>
+
+        <div class="misk-notes__grid">
+            {% for item in component.items %}
+                {% if item.title or item.description %}
+                    <article class="misk-note">
+                        <span class="misk-note__index" aria-hidden="true">0{{ loop.index }}</span>
+                        <h3>{{ item.title }}</h3>
+                        {% if item.description %}
+                            <p>{{ item.description }}</p>
+                        {% endif %}
+                        <span class="misk-note__mark" aria-hidden="true">✳</span>
+                    </article>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

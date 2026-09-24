@@ -19,7 +19,7 @@ import {
 type PreviewViewport = "desktop" | "tablet" | "mobile";
 type PreviewPanel = "cart" | "favorites" | null;
 
-const editorialSlugs = new Set(["leen", "mada", "wameed", "ward", "qahwa"]);
+const editorialSlugs = new Set(["leen", "mada", "wameed", "ward", "qahwa", "misk"]);
 
 export function LiveStorefrontPreview({ theme }: { theme: ThemeDetailDto }) {
   const [viewport, setViewport] = useState<PreviewViewport>("desktop");

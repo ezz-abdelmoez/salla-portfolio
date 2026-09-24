@@ -37,7 +37,7 @@ describe("mock-first store workflows", () => {
     const home = await createHomeEndpoints(makeClient()).getContent();
     expect(home.title).toContain("متجرك");
     expect(home.benefits.length).toBeGreaterThanOrEqual(4);
-    expect(home.featuredThemeIds).toEqual(expect.arrayContaining(["theme-leen", "theme-mada", "theme-wameed", "theme-ward", "theme-qahwa"]));
+    expect(home.featuredThemeIds).toEqual(expect.arrayContaining(["theme-leen", "theme-mada", "theme-wameed", "theme-ward", "theme-qahwa", "theme-misk"]));
   });
 
   it("returns categories with counts computed from the published theme fixtures", async () => {
@@ -45,15 +45,16 @@ describe("mock-first store workflows", () => {
     expect(categories.length).toBe(6);
     expect(categories[0].order).toBe(1);
     expect(categories.find((category) => category.slug === "fashion")?.themeCount).toBe(2);
-    expect(categories.reduce((sum, category) => sum + category.themeCount, 0)).toBe(10);
+    expect(categories.find((category) => category.slug === "beauty")?.themeCount).toBe(3);
+    expect(categories.reduce((sum, category) => sum + category.themeCount, 0)).toBe(11);
   });
 
   it("searches and filters the theme catalogue with pagination metadata", async () => {
     const api = createThemeEndpoints(makeClient());
     const all = await api.list({ page: 1, pageSize: 20 });
-    expect(all.meta.total).toBe(10);
-    expect(all.items).toHaveLength(10);
-    for (const slug of ["leen", "mada", "wameed", "ward", "qahwa"]) {
+    expect(all.meta.total).toBe(11);
+    expect(all.items).toHaveLength(11);
+    for (const slug of ["leen", "mada", "wameed", "ward", "qahwa", "misk"]) {
       expect(all.items.find((theme) => theme.slug === slug)?.demoPreviewPath).toBe(`/themes/${slug}/preview`);
     }
 
@@ -65,6 +66,10 @@ describe("mock-first store workflows", () => {
 
     const coffee = await api.list({ search: "قهوة", pageSize: 12 });
     expect(coffee.items.map((theme) => theme.slug)).toContain("qahwa");
+    const fragrance = await api.list({ search: "عطور", pageSize: 12 });
+    expect(fragrance.items.map((theme) => theme.slug)).toContain("misk");
+    const beauty = await api.list({ category: "beauty", pageSize: 12 });
+    expect(beauty.items.map((theme) => theme.slug)).toContain("misk");
     const food = await api.list({ category: "food", pageSize: 12 });
     expect(food.items.map((theme) => theme.slug).sort()).toEqual(["qahwa", "tamrah"]);
 
@@ -94,11 +99,16 @@ describe("mock-first store workflows", () => {
     expect(ward.description).toContain("مسودة");
     expect(ward.compatibilityNote).toContain("لا تتصل بالشحن");
 
+    const misk = await api.get("misk");
+    expect(misk.name).toBe("مِسك");
+    expect(misk.description).toContain("مسودة");
+    expect(misk.compatibilityNote).toContain("غير مرتبطة بحساب شريك سلة");
+
     await expect(api.get("not-a-theme")).rejects.toMatchObject({ status: 404, code: "NOT_FOUND" });
   });
 
   it("provides a distinct bilingual storefront profile for each created Twilight draft", () => {
-    for (const slug of ["leen", "mada", "wameed", "ward", "qahwa"]) {
+    for (const slug of ["leen", "mada", "wameed", "ward", "qahwa", "misk"]) {
       const products = previewProductsBySlug[slug];
       expect(englishStorefrontCopy[slug]?.headline).toBeTruthy();
       expect(products).toHaveLength(3);

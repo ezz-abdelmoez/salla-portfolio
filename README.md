@@ -24,15 +24,16 @@ corepack pnpm build
 
 ## مسودات Twilight محلية
 
-توجد خمس مسودات Twilight داخل `salla-themes/`، منفصلة عن كتالوج نَسَق التجريبي:
+توجد ست مسودات Twilight داخل `salla-themes/`، منفصلة عن كتالوج نَسَق التجريبي:
 
 - **لِين** للعبايات والأزياء: [`salla-themes/leen/`](./salla-themes/leen/)
-- **مَدى** للجمال والعناية: [`salla-themes/mada/`](./salla-themes/mada/)
+- **مَدى** للعناية بالبشرة والجمال: [`salla-themes/mada/`](./salla-themes/mada/)
 - **وَميض** للإلكترونيات والأجهزة الذكية: [`salla-themes/wameed/`](./salla-themes/wameed/)
 - **وَرد** للزهور والهدايا والمناسبات: [`salla-themes/ward/`](./salla-themes/ward/)
 - **قهوة** للمحمصات ومتاجر القهوة المختصة: [`salla-themes/qahwa/`](./salla-themes/qahwa/)
+- **مِسك** للعطور والعود والبخور: [`salla-themes/misk/`](./salla-themes/misk/)
 
-كلها مسودات محلية مبنية على Theme Raed وبها مكوّنات قابلة للتخصيص. افتح `/themes/<slug>/preview` لمعاينة متجر محلية تفاعلية لكل ثيم؛ معاينات المسودات الخمس تعرض صورها ومحتواها المخصص وتدعم العربية والإنجليزية وأحجام سطح المكتب والجهاز اللوحي والجوال. هذه محاكاة React ببيانات تجريبية وليست تشغيلًا لقوالب Twilight أو متجرًا مستضافًا على سلة. لم يُربط أي منها بحساب شريك سلة أو متجر معاينة؛ لذلك لم تُختبر على متجر سلة أو تُقدّم أو تُعتمد، ولا ينبغي اعتبارها جاهزة للتثبيت.
+كلها مسودات محلية مبنية على Theme Raed وبها مكوّنات قابلة للتخصيص. افتح `/themes/<slug>/preview` لمعاينة متجر محلية تفاعلية لكل ثيم؛ معاينات المسودات الست تعرض صورها ومحتواها المخصص وتدعم العربية والإنجليزية وأحجام سطح المكتب والجهاز اللوحي والجوال. هذه محاكاة React ببيانات تجريبية وليست تشغيلًا لقوالب Twilight أو متجرًا مستضافًا على سلة. لم يُربط أي منها بحساب شريك سلة أو متجر معاينة؛ لذلك لم تُختبر على متجر سلة أو تُقدّم أو تُعتمد، ولا ينبغي اعتبارها جاهزة للتثبيت.
 
 للفحص والبناء معًا من جذر المشروع:
 
@@ -49,6 +50,7 @@ corepack pnpm export:twilight -- mada ../mada-twilight-theme
 corepack pnpm export:twilight -- wameed ../wameed-twilight-theme
 corepack pnpm export:twilight -- ward ../ward-twilight-theme
 corepack pnpm export:twilight -- qahwa ../qahwa-twilight-theme
+corepack pnpm export:twilight -- misk ../misk-twilight-theme
 ```
 
-راجع ملفات README داخل مجلدات الثيمات وخطط الانتقال للمعاينة: [`لِين`](./docs/SALLA_THEME_FIRST_DRAFT.md)، [`مَدى`](./docs/SALLA_THEME_SECOND_DRAFT.md)، [`وَميض`](./docs/SALLA_THEME_THIRD_DRAFT.md)، [`وَرد`](./docs/SALLA_THEME_FOURTH_DRAFT.md)، و[`قهوة`](./docs/SALLA_THEME_FIFTH_DRAFT.md).
+راجع ملفات README داخل مجلدات الثيمات وخطط الانتقال للمعاينة: [`لِين`](./docs/SALLA_THEME_FIRST_DRAFT.md)، [`مَدى`](./docs/SALLA_THEME_SECOND_DRAFT.md)، [`وَميض`](./docs/SALLA_THEME_THIRD_DRAFT.md)، [`وَرد`](./docs/SALLA_THEME_FOURTH_DRAFT.md)، [`قهوة`](./docs/SALLA_THEME_FIFTH_DRAFT.md)، و[`مِسك`](./docs/SALLA_THEME_SIXTH_DRAFT.md).

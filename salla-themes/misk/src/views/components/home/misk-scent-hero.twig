@@ -1,0 +1,55 @@
+{#
+| Variable                  | Type   | Description                                    |
+|---------------------------|--------|------------------------------------------------|
+| component                 | object | Merchant-editable settings from twilight.json |
+| component.eyebrow         | string | Short campaign label                           |
+| component.title           | string | Main campaign headline                         |
+| component.description     | string | Supporting copy                                |
+| component.image           | string | Optional merchant-uploaded campaign image      |
+| component.image_alt       | string | Accessible image description                   |
+| component.cta_label       | string | Primary action label                           |
+| component.cta_url         | string | Salla variable-list URL                        |
+| componentId               | string | Twilight component identifier                  |
+#}
+{% set hero_eyebrow = component.eyebrow|default(trans('blocks.misk.hero_eyebrow')) %}
+{% set hero_title = component.title|default(trans('blocks.misk.hero_title')) %}
+{% set hero_description = component.description|default(trans('blocks.misk.hero_description')) %}
+{% set hero_image = component.image|default('images/misk-editorial.jpg'|asset) %}
+{% set hero_image_alt = component.image_alt|default(trans('blocks.misk.hero_image_alt')) %}
+{% set hero_cta_label = component.cta_label|default(trans('blocks.misk.hero_cta')) %}
+{% set hero_cta_url = component.cta_url|default(store.url) %}
+
+<section component-id="{{ componentId }}" data-testid="store-home-misk-scent-hero" class="s-block misk-hero">
+    <div class="container">
+        <div class="misk-hero__grid">
+            <div class="misk-hero__copy">
+                <p class="misk-hero__eyebrow"><span aria-hidden="true"></span>{{ hero_eyebrow }}</p>
+                <h2 class="misk-hero__title">{{ hero_title }}</h2>
+                {% if hero_description %}
+                    <p class="misk-hero__description">{{ hero_description }}</p>
+                {% endif %}
+                <a class="misk-button" href="{{ hero_cta_url }}">
+                    <span>{{ hero_cta_label }}</span>
+                    <span class="misk-button__arrow" aria-hidden="true">↖</span>
+                </a>
+                <p class="misk-hero__footnote">{{ trans('blocks.misk.hero_note') }}</p>
+            </div>
+
+            <figure class="misk-hero__visual">
+                <img
+                    src="{{ hero_image }}"
+                    alt="{{ hero_image_alt }}"
+                    width="928"
+                    height="1160"
+                    fetchpriority="high"
+                    loading="eager"
+                >
+                <figcaption class="misk-hero__caption">
+                    <span>{{ trans('blocks.misk.hero_caption') }}</span>
+                    <span aria-hidden="true">01 / 03</span>
+                </figcaption>
+                <span class="misk-hero__seal" aria-hidden="true">{{ trans('blocks.misk.hero_seal') }}</span>
+            </figure>
+        </div>
+    </div>
+</section>
