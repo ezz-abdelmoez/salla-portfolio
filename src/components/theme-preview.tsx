@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { CSSProperties } from "react";
 import type { ThemeSummaryDto } from "@/lib/api/contracts/theme";
 
@@ -6,6 +7,8 @@ type ThemePreviewProps = {
   size?: "card" | "hero" | "detail" | "mobile";
   showToolbar?: boolean;
 };
+
+const editorialSlugs = new Set(["leen", "mada", "wameed", "ward", "qahwa"]);
 
 export function ThemePreview({ theme, size = "card", showToolbar = true }: ThemePreviewProps) {
   const palette = theme.previewPalette;
@@ -17,6 +20,7 @@ export function ThemePreview({ theme, size = "card", showToolbar = true }: Theme
     "--preview-text": palette.text,
   } as CSSProperties;
   const artKind = theme.categoryId.replace("cat-", "");
+  const hasEditorialImage = editorialSlugs.has(theme.slug);
 
   return (
     <div className={`theme-preview theme-preview--${size}`} style={style} role="img" aria-label={`معاينة تصميمية لثيم ${theme.name}، ${theme.categoryName}`}>
@@ -40,7 +44,8 @@ export function ThemePreview({ theme, size = "card", showToolbar = true }: Theme
             <span className="preview-subcopy">تفاصيل بسيطة، تجربة أقرب لك.</span>
             <span className="preview-shop-cta">اكتشفي المجموعة <b>←</b></span>
           </div>
-          <div className={`preview-art preview-art--${artKind}`} aria-hidden="true">
+          <div className={`preview-art preview-art--${artKind} ${hasEditorialImage ? "preview-art--photo" : ""}`} aria-hidden="true">
+            {hasEditorialImage && <Image src={`/themes/previews/${theme.slug}-editorial.jpg`} alt="" fill sizes="(max-width: 700px) 50vw, 280px" />}
             <span className="art-sun" />
             <span className="art-shadow" />
             <span className="art-object"><i /><b /></span>

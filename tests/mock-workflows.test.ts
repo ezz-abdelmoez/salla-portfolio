@@ -9,6 +9,7 @@ import { createDemoOrderSchema, themeDetailSchema } from "../src/lib/api/schemas
 import { ApiError } from "../src/lib/api/transport/errors";
 import { addToCart, clearCart, getCart, removeFromCart } from "../src/lib/store-state/cart-repository";
 import { getFavoriteIds, toggleFavorite } from "../src/lib/store-state/favorites-repository";
+import { englishStorefrontCopy, previewProductsBySlug } from "../src/lib/preview/storefront-content";
 
 function makeClient() {
   return createApiClient(createMockTransport(), "storefront");
@@ -94,6 +95,15 @@ describe("mock-first store workflows", () => {
     expect(ward.compatibilityNote).toContain("لا تتصل بالشحن");
 
     await expect(api.get("not-a-theme")).rejects.toMatchObject({ status: 404, code: "NOT_FOUND" });
+  });
+
+  it("provides a distinct bilingual storefront profile for each created Twilight draft", () => {
+    for (const slug of ["leen", "mada", "wameed", "ward", "qahwa"]) {
+      const products = previewProductsBySlug[slug];
+      expect(englishStorefrontCopy[slug]?.headline).toBeTruthy();
+      expect(products).toHaveLength(3);
+      expect(products.every((product) => product.name.ar && product.name.en && product.group.ar && product.group.en)).toBe(true);
+    }
   });
 
   it("derives rating and review count from the demo review fixtures", async () => {
