@@ -1,8 +1,8 @@
 [
-  {"id":"cat-fashion","slug":"fashion","name":"الأزياء والعبايات","description":"واجهات أنيقة للعبايات والأزياء والإكسسوارات اليومية.","icon":"Shirt","image":"/themes/category-fashion.svg","order":1,"themeCount":0},
-  {"id":"cat-beauty","slug":"beauty","name":"الجمال والعناية","description":"ثيمات مرتبة تبرز منتجات العناية والجمال بتفاصيلها.","icon":"Sparkles","image":"/themes/category-beauty.svg","order":2,"themeCount":0},
-  {"id":"cat-home","slug":"home","name":"المنزل والديكور","description":"تصميمات هادئة للأثاث والديكور والمنتجات المنزلية.","icon":"Armchair","image":"/themes/category-home.svg","order":3,"themeCount":0},
-  {"id":"cat-food","slug":"food","name":"الأطعمة والمشروبات","description":"تجارب شهية للمقاهي والمخابز والعلامات الغذائية.","icon":"Coffee","image":"/themes/category-food.svg","order":4,"themeCount":0},
-  {"id":"cat-electronics","slug":"electronics","name":"الإلكترونيات","description":"واجهات واضحة تساعد العملاء على اكتشاف المواصفات بسهولة.","icon":"Headphones","image":"/themes/category-electronics.svg","order":5,"themeCount":0},
-  {"id":"cat-gifts","slug":"gifts","name":"الهدايا والزهور","description":"مساحات لطيفة للهدايا وباقات الزهور والمناسبات.","icon":"Gift","image":"/themes/category-gifts.svg","order":6,"themeCount":0}
+  {"id":"cat-fashion","slug":"fashion","name":"الأزياء والعبايات","description":"واجهات أنيقة للعبايات والأزياء والإكسسوارات اليومية.","icon":"Shirt","image":"/themes/categories/fashion.jpg","order":1,"themeCount":0},
+  {"id":"cat-beauty","slug":"beauty","name":"الجمال والعناية","description":"ثيمات مرتبة تبرز منتجات العناية والجمال بتفاصيلها.","icon":"Sparkles","image":"/themes/categories/beauty.jpg","order":2,"themeCount":0},
+  {"id":"cat-home","slug":"home","name":"المنزل والديكور","description":"تصميمات هادئة للأثاث والديكور والمنتجات المنزلية.","icon":"Armchair","image":"/themes/categories/home.jpg","order":3,"themeCount":0},
+  {"id":"cat-food","slug":"food","name":"الأطعمة والمشروبات","description":"تجارب شهية للمقاهي والمخابز والعلامات الغذائية.","icon":"Coffee","image":"/themes/categories/food.jpg","order":4,"themeCount":0},
+  {"id":"cat-electronics","slug":"electronics","name":"الإلكترونيات","description":"واجهات واضحة تساعد العملاء على اكتشاف المواصفات بسهولة.","icon":"Headphones","image":"/themes/categories/electronics.jpg","order":5,"themeCount":0},
+  {"id":"cat-gifts","slug":"gifts","name":"الهدايا والزهور","description":"مساحات لطيفة للهدايا وباقات الزهور والمناسبات.","icon":"Gift","image":"/themes/categories/gifts.jpg","order":6,"themeCount":0}
 ]

@@ -20,6 +20,7 @@ export function SiteFooter() {
           <Link href="/about">قصتنا</Link>
           <Link href="/#how-it-works">كيف تعمل؟</Link>
           <Link href="/faq">الأسئلة الشائعة</Link>
+          <Link href="/contact#custom-theme-request">اطلب تصميم ثيم مخصص</Link>
         </div>
         <Link href="/themes" className="footer-cta">ابدأ باستكشاف الثيمات <ArrowUpLeft size={16} /></Link>
       </div>

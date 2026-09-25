@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpLeft, Check, ChevronLeft, Flower2, LayoutGrid, Search, Sparkles, WandSparkles } from "lucide-react";
+import { ArrowLeft, ArrowUpLeft, Check, ChevronLeft, Flower2, LayoutGrid, Palette, Search, Sparkles, WandSparkles } from "lucide-react";
 import type { HomeContentDto } from "@/lib/api/contracts/home";
 import type { CategoryDto } from "@/lib/api/contracts/category";
 import type { PageResult } from "@/lib/api/contracts/common";
@@ -105,7 +105,10 @@ export function HomePage({ initialHome, initialCategories, initialThemes }: { in
       <section className="last-cta page-shell">
         <div><p className="eyebrow">خطوتك الجاية</p><h2>يمكن ثيمك الجاي<br />هنا.</h2></div>
         <p>خذ جولة بين التصاميم، واحفظ اللي يعجبك عشان ترجع له وقت ما تحب.</p>
-        <Link href="/themes" className="button button--light button--large">ابدأ التصفح <ArrowLeft size={17} /></Link>
+        <div className="last-cta-actions">
+          <Link href="/themes" className="button button--light button--large">ابدأ التصفح <ArrowLeft size={17} /></Link>
+          <Link href="/contact#custom-theme-request" className="last-cta-custom-link"><Palette size={16} /> اطلب ثيمًا مخصصًا <ArrowUpLeft size={15} /></Link>
+        </div>
       </section>
     </div>
   );
