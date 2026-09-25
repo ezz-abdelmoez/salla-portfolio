@@ -22,7 +22,12 @@
             {% endif %}
         </div>
 
-        <div class="ward-occasions__grid">
+        <div class="ward-occasions__layout">
+            <figure class="ward-occasions__visual">
+                <img src="{{ 'images/ward-story.jpg'|asset }}" alt="{{ trans('blocks.ward.occasions_image_alt') }}" width="1280" height="854" loading="lazy">
+                <figcaption>{{ trans('blocks.ward.occasions_image_caption') }}</figcaption>
+            </figure>
+            <div class="ward-occasions__grid">
             {% for item in component.items %}
                 {% if item.title or item.description %}
                     <article class="ward-occasion">
@@ -35,6 +40,7 @@
                     </article>
                 {% endif %}
             {% endfor %}
+            </div>
         </div>
     </div>
 </section>

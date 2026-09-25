@@ -22,7 +22,12 @@
             {% endif %}
         </div>
 
-        <div class="misk-notes__grid">
+        <div class="misk-notes__layout">
+            <figure class="misk-notes__visual">
+                <img src="{{ 'images/misk-story.jpg'|asset }}" alt="{{ trans('blocks.misk.notes_image_alt') }}" width="1280" height="854" loading="lazy">
+                <figcaption>{{ trans('blocks.misk.notes_image_caption') }}</figcaption>
+            </figure>
+            <div class="misk-notes__grid">
             {% for item in component.items %}
                 {% if item.title or item.description %}
                     <article class="misk-note">
@@ -35,6 +40,7 @@
                     </article>
                 {% endif %}
             {% endfor %}
+            </div>
         </div>
     </div>
 </section>

@@ -37,6 +37,7 @@ import {
   type PreviewLanguage,
 } from "@/lib/preview/storefront-content";
 import { storefrontPagesCopy, type StorefrontPageId } from "@/lib/preview/storefront-pages";
+import { storefrontVisuals } from "@/lib/preview/storefront-visuals";
 
 type PreviewViewport = "desktop" | "tablet" | "mobile";
 type PreviewPanel = "favorites" | null;
@@ -83,6 +84,8 @@ export function LiveStorefrontPreview({ theme }: { theme: ThemeDetailDto }) {
   const copy = language === "en" ? englishCopy : undefined;
   const chrome = previewChrome[language];
   const pageCopy = storefrontPagesCopy[language];
+  const visual = storefrontVisuals[theme.slug];
+  const visualCopy = visual?.copy[language];
   const storeName = copy?.storeName ?? theme.previewStoreName;
   const categoryName = copy?.category ?? (language === "en" ? englishCategoryNames[theme.categoryId] ?? "Lifestyle" : theme.categoryName);
   const headline = copy?.headline ?? (language === "en" ? `Explore the ${categoryName.toLowerCase()} collection` : theme.previewHeadline);
@@ -118,6 +121,7 @@ export function LiveStorefrontPreview({ theme }: { theme: ThemeDetailDto }) {
     return matchesGroup && matchesSearch;
   }), [activeGroup, language, products, search]);
   const heroImage = editorialSlugs.has(theme.slug) ? `/themes/previews/${theme.slug}-editorial.jpg` : theme.coverImage;
+  const storyImage = visual?.image ?? heroImage;
   const stageStyle = {
     "--store-background": theme.previewPalette.background,
     "--store-surface": theme.previewPalette.surface,
@@ -132,6 +136,12 @@ export function LiveStorefrontPreview({ theme }: { theme: ThemeDetailDto }) {
   const formatPreviewPrice = (price: number) => language === "en"
     ? new Intl.NumberFormat("en-SA", { style: "currency", currency: "SAR", maximumFractionDigits: 0 }).format(price)
     : formatPrice(price);
+
+  function getProductImage(product: DemoPreviewProduct) {
+    if (!visual?.productImages.length) return undefined;
+    const productIndex = products.findIndex((item) => item.id === product.id);
+    return visual.productImages[productIndex < 0 ? 0 : productIndex % visual.productImages.length];
+  }
 
   useEffect(() => {
     if (!openPanel) return;
@@ -215,11 +225,12 @@ export function LiveStorefrontPreview({ theme }: { theme: ThemeDetailDto }) {
       <div className="local-store-product-grid">
         {items.map((product, index) => {
           const isFavorite = favoriteIds.includes(product.id);
+          const productImage = getProductImage(product);
           return (
             <article className="local-store-product" key={product.id}>
-              <div className={`local-product-art local-product-art--${theme.categoryId.replace("cat-", "")}`}>
+              <div className={`local-product-art local-product-art--${theme.categoryId.replace("cat-", "")}${productImage ? " local-product-art--photo" : ""}`}>
                 <button type="button" className="local-product-open" onClick={() => openProduct(product)} aria-label={`${chrome.details}: ${product.name[language]}`}>
-                  <span className={`local-product-object local-product-object--${(index % 3) + 1}`} aria-hidden="true" />
+                  {productImage ? <Image src={productImage} alt="" fill sizes="(max-width: 440px) 48vw, (max-width: 760px) 32vw, 22vw" /> : <span className={`local-product-object local-product-object--${(index % 3) + 1}`} aria-hidden="true" />}
                 </button>
                 <span className="local-product-label">{product.group[language]}</span>
                 <button
@@ -263,6 +274,46 @@ export function LiveStorefrontPreview({ theme }: { theme: ThemeDetailDto }) {
         <span aria-hidden="true">/</span>
         <span aria-current="page">{label}</span>
       </nav>
+    );
+  }
+
+  function renderThemeVisualization() {
+    if (!visual || !visualCopy) return null;
+    const merchantDetail = language === "en" ? "Merchant-provided detail" : "تفصيل يضيفه التاجر";
+
+    return (
+      <section className={`local-theme-showcase local-theme-showcase--${visual.kind}`} aria-label={visualCopy.title}>
+        <div className="local-theme-showcase-heading">
+          <div><span className="local-store-kicker">{visualCopy.eyebrow}</span><h2>{visualCopy.title}</h2><p>{visualCopy.description}</p></div>
+        </div>
+        <div className="local-theme-showcase-layout">
+          <figure className="local-theme-showcase-photo">
+            <Image src={visual.image} alt={visual.alt[language]} fill sizes="(max-width: 760px) 90vw, 48vw" />
+            <figcaption>{visualCopy.caption}</figcaption>
+          </figure>
+          <div className={`local-theme-visual local-theme-visual--${visual.kind}`}>
+            {visual.kind === "lookbook" && <div className="local-lookbook-index">
+              {visualCopy.labels.map((label, index) => <article key={label}><span>0{index + 1}</span><strong>{label}</strong><small>{merchantDetail}</small></article>)}
+            </div>}
+            {visual.kind === "routine" && <ol className="local-routine-steps">
+              {visualCopy.labels.map((label, index) => <li key={label}><span>0{index + 1}</span><div><strong>{label}</strong><small>{merchantDetail}</small></div><ArrowUpLeft size={15} aria-hidden="true" /></li>)}
+            </ol>}
+            {visual.kind === "specs" && <div className="local-specs-grid">
+              {visualCopy.labels.map((label, index) => <article key={label}><span>0{index + 1}</span><strong>{label}</strong><small>{merchantDetail}</small></article>)}
+            </div>}
+            {visual.kind === "occasions" && <div className="local-occasion-cards">
+              {visualCopy.labels.map((label, index) => <article key={label}><span className={`local-occasion-mark local-occasion-mark--${index + 1}`} aria-hidden="true">{index === 0 ? "✳" : index === 1 ? "✦" : "♡"}</span><strong>{label}</strong><small>{language === "en" ? "A sample idea" : "فكرة تجريبية"}</small></article>)}
+            </div>}
+            {visual.kind === "roast" && <div className="local-roast-chart">
+              {visualCopy.labels.map((label, index) => <div className="local-roast-row" key={label}><div><strong>{label}</strong><span>{language === "en" ? "Sample" : "تجريبي"}</span></div><span className="local-roast-meter" style={{ "--visual-bar": `${[44, 66, 53][index]}%` } as CSSProperties} aria-hidden="true" /></div>)}
+            </div>}
+            {visual.kind === "scent" && <div className="local-scent-pyramid">
+              {visualCopy.labels.map((label, index) => <article className={`local-scent-layer local-scent-layer--${index + 1}`} key={label}><span>0{index + 1}</span><strong>{label}</strong><small>{merchantDetail}</small></article>)}
+            </div>}
+            <p className="local-theme-visual-note">{visualCopy.note}</p>
+          </div>
+        </div>
+      </section>
     );
   }
 
@@ -318,7 +369,7 @@ export function LiveStorefrontPreview({ theme }: { theme: ThemeDetailDto }) {
         <p>{chrome.disclaimer}</p>
       </div>
 
-      <div className={`local-store-stage local-store-stage--${viewport}`} style={stageStyle} dir={language === "en" ? "ltr" : "rtl"} lang={language}>
+      <div className={`local-store-stage local-store-stage--${viewport} local-store-theme--${theme.slug}`} style={stageStyle} dir={language === "en" ? "ltr" : "rtl"} lang={language}>
         <div className="local-store-shell">
           <div className="local-store-announcement">{copy?.announcement ?? chrome.announcement}</div>
           <header className="local-store-header">
@@ -352,7 +403,7 @@ export function LiveStorefrontPreview({ theme }: { theme: ThemeDetailDto }) {
 
           <main id="store-content" className={`local-store-main local-store-main--${storePage}`}>
             {storePage === "home" && <>
-              <section className="local-store-hero">
+              <section className={`local-store-hero local-store-hero--${theme.slug}`}>
                 <div className="local-store-hero-copy">
                   <span className="local-store-kicker">{language === "en" ? `Curated ${categoryName}` : `مختارات ${categoryName}`}</span>
                   <h1>{headline}</h1>
@@ -371,6 +422,8 @@ export function LiveStorefrontPreview({ theme }: { theme: ThemeDetailDto }) {
                   <div key={feature}><span>0{index + 1}</span><p><strong>{feature}</strong><small>{language === "en" ? ["Explore the edit", "Merchant-editable details", "A responsive storefront"][index] : "تفاصيل قابلة للتخصيص"}</small></p></div>
                 ))}
               </section>
+
+              {renderThemeVisualization()}
 
               <section className="local-store-signature" aria-labelledby="local-store-signature-title">
                 <div className="local-store-signature-intro"><span className="local-store-kicker">{moduleContent.eyebrow}</span><h2 id="local-store-signature-title">{moduleContent.title}</h2><p>{moduleContent.description}</p></div>
@@ -418,7 +471,7 @@ export function LiveStorefrontPreview({ theme }: { theme: ThemeDetailDto }) {
                   <span className="local-campaign-note">{pageCopy.campaign.sampleNote}</span>
                   <button type="button" className="local-store-cta" onClick={() => document.getElementById("campaign-products")?.scrollIntoView({ behavior: "smooth", block: "start" })}>{pageCopy.campaign.button} <ArrowUpLeft size={16} /></button>
                 </div>
-                <div className="local-campaign-image"><Image src={heroImage} alt={language === "en" ? `Sample campaign image for ${storeName}` : `صورة تجريبية لحملة ${storeName}`} fill sizes="(max-width: 760px) 90vw, 48vw" /></div>
+                <div className="local-campaign-image"><Image src={storyImage} alt={language === "en" ? `Sample campaign image for ${storeName}` : `صورة تجريبية لحملة ${storeName}`} fill sizes="(max-width: 760px) 90vw, 48vw" /></div>
               </section>
               <div className="local-store-campaign-disclaimer"><span>!</span><p>{pageCopy.campaign.sampleNote}</p></div>
               <div id="campaign-products">{renderProductSection(products, productsTitle, productsDescription)}</div>
@@ -427,8 +480,8 @@ export function LiveStorefrontPreview({ theme }: { theme: ThemeDetailDto }) {
             {storePage === "product" && selectedProduct && <>
               {renderBreadcrumb(selectedProduct.name[language], "collection")}
               <section className="local-store-product-page">
-                <div className={`local-product-art local-product-art--large local-product-art--${theme.categoryId.replace("cat-", "")}`}>
-                  <span className="local-product-object local-product-object--1" aria-hidden="true" />
+                <div className={`local-product-art local-product-art--large local-product-art--${theme.categoryId.replace("cat-", "")}${getProductImage(selectedProduct) ? " local-product-art--photo" : ""}`}>
+                  {getProductImage(selectedProduct) ? <Image src={getProductImage(selectedProduct) ?? heroImage} alt={selectedProduct.name[language]} fill sizes="(max-width: 760px) 92vw, 48vw" /> : <span className="local-product-object local-product-object--1" aria-hidden="true" />}
                   <span className="local-product-label">{selectedProduct.group[language]}</span>
                   <button type="button" className={`local-product-favorite local-product-favorite--detail ${favoriteIds.includes(selectedProduct.id) ? "is-active" : ""}`} aria-label={pageCopy.product.favorite} aria-pressed={favoriteIds.includes(selectedProduct.id)} onClick={() => toggleFavorite(selectedProduct.id)}><Heart size={18} fill={favoriteIds.includes(selectedProduct.id) ? "currentColor" : "none"} /></button>
                 </div>
@@ -521,7 +574,7 @@ export function LiveStorefrontPreview({ theme }: { theme: ThemeDetailDto }) {
               {cartProducts.length ? <section className="local-cart-layout">
                 <div className="local-cart-items">
                   {cartProducts.map((product, index) => <article className="local-cart-item" key={`${product.id}-${index}`}>
-                    <button type="button" className={`local-cart-thumbnail local-product-art local-product-art--${theme.categoryId.replace("cat-", "")}`} onClick={() => openProduct(product)} aria-label={product.name[language]}><span className="local-product-object local-product-object--1" aria-hidden="true" /></button>
+                    <button type="button" className={`local-cart-thumbnail local-product-art local-product-art--${theme.categoryId.replace("cat-", "")}${getProductImage(product) ? " local-product-art--photo" : ""}`} onClick={() => openProduct(product)} aria-label={product.name[language]}>{getProductImage(product) ? <Image src={getProductImage(product) ?? heroImage} alt="" fill sizes="70px" /> : <span className="local-product-object local-product-object--1" aria-hidden="true" />}</button>
                     <div><span className="local-store-kicker">{product.group[language]}</span><button type="button" className="local-cart-item-name" onClick={() => openProduct(product)}>{product.name[language]}</button><small>{product.description[language]}</small></div>
                     <strong>{formatPreviewPrice(product.price)}</strong>
                     <button type="button" className="local-cart-remove" onClick={() => removeCartItem(index)} aria-label={`${pageCopy.cart.remove} ${product.name[language]}`}><X size={15} /></button>

@@ -22,7 +22,12 @@
             {% endif %}
         </div>
 
-        <div class="qahwa-notes__grid">
+        <div class="qahwa-notes__layout">
+            <figure class="qahwa-notes__visual">
+                <img src="{{ 'images/qahwa-story.jpg'|asset }}" alt="{{ trans('blocks.qahwa.notes_image_alt') }}" width="1280" height="854" loading="lazy">
+                <figcaption>{{ trans('blocks.qahwa.notes_image_caption') }}</figcaption>
+            </figure>
+            <div class="qahwa-notes__grid">
             {% for item in component.items %}
                 {% if item.title or item.description %}
                     <article class="qahwa-note">
@@ -35,6 +40,7 @@
                     </article>
                 {% endif %}
             {% endfor %}
+            </div>
         </div>
     </div>
 </section>

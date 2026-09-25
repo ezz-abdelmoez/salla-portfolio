@@ -18,7 +18,9 @@
       "notes_eyebrow": "Brew notes",
       "notes_title": "Tell the story of your coffee",
       "notes_description": "Add verified details about origin, roast, and preparation, or edit these cards for your store.",
-      "campaign_eyebrow": "Qahwa campaign"
+      "campaign_eyebrow": "Qahwa campaign",
+      "notes_image_alt": "Roasted coffee beans and tasting tools on warm wood",
+      "notes_image_caption": "From the roastery · Sample imagery"
     }
   },
   "pages": {

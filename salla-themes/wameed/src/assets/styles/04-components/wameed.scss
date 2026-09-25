@@ -347,3 +347,25 @@ body {
   --page-line: var(--wameed-line);
   --page-radius: var(--wameed-radius);
 }
+
+/* Wameed turns its highlights into a dark, image-led device/specification panel. */
+.wameed-hero__grid { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); }
+.wameed-hero__visual { min-height: 38rem; }
+.wameed-hero__visual img { min-height: 38rem; }
+.wameed-pillars__visual { position: relative; min-height: 27rem; overflow: hidden; border-radius: 1rem; background: var(--wameed-night); isolation: isolate; }
+.wameed-pillars__visual::after { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(10,20,32,.9), rgba(10,20,32,.22)), linear-gradient(0deg, rgba(10,20,32,.84), transparent 72%); content: ""; }
+.wameed-pillars__visual > img { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.wameed-pillars__grid { position: relative; z-index: 1; min-height: 27rem; align-items: end; padding: clamp(1rem, 3vw, 2rem); }
+.wameed-pillar { min-height: 0; border-color: rgba(131,190,255,.32); background: rgba(14,26,39,.82); backdrop-filter: blur(9px); }
+.wameed-pillar h3 { color: #f5f8fc; }
+.wameed-pillar p { color: #bccbdc; }
+.wameed-pillar__index { border-color: rgba(131,190,255,.42); background: rgba(56,118,193,.18); color: #9ac7ff; }
+@media (max-width: 767px) {
+  .wameed-hero__grid { grid-template-columns: minmax(0, 1fr); }
+  .wameed-hero__visual,
+  .wameed-hero__visual img { min-height: 0; }
+  .wameed-pillars__visual,
+  .wameed-pillars__grid { min-height: 0; }
+  .wameed-pillars__visual > img { position: absolute; }
+  .wameed-pillars__grid { grid-template-columns: minmax(0, 1fr); }
+}

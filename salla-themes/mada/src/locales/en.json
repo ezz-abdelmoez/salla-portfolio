@@ -20,7 +20,9 @@
       "steps_description": "Edit these cards to explain how to use your products, without unsupported treatment promises or claims.",
       "step_title": "Step title",
       "step_description": "A short description of this step",
-      "campaign_eyebrow": "Mada campaign"
+      "campaign_eyebrow": "Mada campaign",
+      "steps_image_alt": "Skincare products on pale sage stone",
+      "steps_image_caption": "Care routine · Sample imagery"
     }
   },
   "pages": {

@@ -22,7 +22,12 @@
             {% endif %}
         </div>
 
-        <div class="mada-steps__grid">
+        <div class="mada-steps__layout">
+            <figure class="mada-steps__visual">
+                <img src="{{ 'images/mada-story.jpg'|asset }}" alt="{{ trans('blocks.mada.steps_image_alt') }}" width="1280" height="854" loading="lazy">
+                <figcaption>{{ trans('blocks.mada.steps_image_caption') }}</figcaption>
+            </figure>
+            <div class="mada-steps__grid">
             {% for step in component.steps %}
                 {% if step.title or step.description %}
                     <article class="mada-step">
@@ -34,6 +39,7 @@
                     </article>
                 {% endif %}
             {% endfor %}
+            </div>
         </div>
     </div>
 </section>

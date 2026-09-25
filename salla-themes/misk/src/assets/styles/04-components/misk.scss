@@ -360,3 +360,25 @@ body {
   --page-line: var(--misk-line);
   --page-radius: var(--misk-radius);
 }
+
+/* Misk is an image-first fragrance editorial with a layered, gallery-like scent section. */
+.misk-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: #33202f; }
+.misk-hero__copy { padding-inline: clamp(2rem, 4vw, 4rem); color: #fff9f7; }
+.misk-hero__title { font-family: Georgia, serif; font-weight: 500; letter-spacing: -.025em; }
+.misk-hero__visual { min-height: 39rem; border-radius: 44% 44% .35rem .35rem; }
+.misk-hero__visual img { min-height: 39rem; }
+.misk-notes__layout { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); align-items: center; gap: clamp(1rem, 3vw, 2.25rem); }
+.misk-notes__visual { position: relative; min-height: 28rem; margin: 0; overflow: hidden; border: 1px solid rgba(215,169,159,.24); border-radius: 45% 45% .3rem .3rem; }
+.misk-notes__visual img { display: block; width: 100%; height: 100%; min-height: 28rem; object-fit: cover; }
+.misk-notes__visual figcaption { position: absolute; inset-inline: 1rem; bottom: 1rem; padding: .75rem 1rem; border: 1px solid rgba(255,249,247,.24); border-radius: .35rem; background: rgba(51,32,47,.76); color: #fff9f7; font-size: .75rem; }
+.misk-notes__grid { grid-template-columns: minmax(0, 1fr); gap: .65rem; align-content: center; }
+.misk-note { min-height: 0; padding: 1rem 1.2rem; border-inline-start: 2px solid #d7a99f; border-radius: .25rem; }
+.misk-note__index { margin-bottom: .65rem; }
+@media (max-width: 767px) {
+  .misk-hero__grid { grid-template-columns: minmax(0, 1fr); }
+  .misk-hero__visual,
+  .misk-hero__visual img { min-height: 0; }
+  .misk-notes__layout { grid-template-columns: minmax(0, 1fr); }
+  .misk-notes__visual,
+  .misk-notes__visual img { min-height: 0; aspect-ratio: 4 / 3; }
+}

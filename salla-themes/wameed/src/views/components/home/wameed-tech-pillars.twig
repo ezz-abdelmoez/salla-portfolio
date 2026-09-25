@@ -22,7 +22,9 @@
             {% endif %}
         </div>
 
-        <div class="wameed-pillars__grid">
+        <div class="wameed-pillars__visual">
+            <img src="{{ 'images/wameed-story.jpg'|asset }}" alt="{{ trans('blocks.wameed.pillars_image_alt') }}" width="1280" height="854" loading="lazy">
+            <div class="wameed-pillars__grid">
             {% for item in component.items %}
                 {% if item.title or item.description %}
                     <article class="wameed-pillar">
@@ -34,6 +36,7 @@
                     </article>
                 {% endif %}
             {% endfor %}
+            </div>
         </div>
     </div>
 </section>

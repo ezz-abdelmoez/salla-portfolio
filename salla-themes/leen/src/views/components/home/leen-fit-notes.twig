@@ -22,7 +22,12 @@
             {% endif %}
         </div>
 
-        <div class="leen-notes__grid">
+        <div class="leen-notes__layout">
+            <figure class="leen-notes__visual">
+                <img src="{{ 'images/leen-story.jpg'|asset }}" alt="{{ trans('blocks.leen.notes_image_alt') }}" width="1280" height="854" loading="lazy">
+                <figcaption>{{ trans('blocks.leen.notes_image_caption') }}</figcaption>
+            </figure>
+            <div class="leen-notes__grid">
             {% for note in component.notes %}
                 {% if note.title or note.description %}
                     <article class="leen-note">
@@ -34,6 +39,7 @@
                     </article>
                 {% endif %}
             {% endfor %}
+            </div>
         </div>
     </div>
 </section>

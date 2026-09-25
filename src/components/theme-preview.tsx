@@ -23,7 +23,7 @@ export function ThemePreview({ theme, size = "card", showToolbar = true }: Theme
   const hasEditorialImage = editorialSlugs.has(theme.slug);
 
   return (
-    <div className={`theme-preview theme-preview--${size}`} style={style} role="img" aria-label={`معاينة تصميمية لثيم ${theme.name}، ${theme.categoryName}`}>
+    <div className={`theme-preview theme-preview--${size} theme-preview--theme-${theme.slug}`} style={style} role="img" aria-label={`معاينة تصميمية لثيم ${theme.name}، ${theme.categoryName}`}>
       {showToolbar && (
         <div className="preview-browser-bar" aria-hidden="true">
           <span className="browser-dots"><i /><i /><i /></span>

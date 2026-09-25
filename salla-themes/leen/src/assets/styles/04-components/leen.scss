@@ -380,3 +380,25 @@ body {
   --page-line: var(--leen-line);
   --page-radius: var(--leen-radius);
 }
+
+/* Leen's homepage reads like an editorial lookbook rather than a generic campaign grid. */
+.leen-hero__grid { grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); }
+.leen-hero__visual,
+.leen-hero__visual img { min-height: 38rem; }
+.leen-hero__visual { border-radius: 2px; }
+.leen-hero__title { font-weight: 450; }
+.leen-notes__layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: stretch; gap: clamp(1rem, 3vw, 2.5rem); }
+.leen-notes__visual { position: relative; min-height: 28rem; margin: 0; overflow: hidden; background: var(--leen-paper-deep); }
+.leen-notes__visual img { display: block; width: 100%; height: 100%; min-height: 28rem; object-fit: cover; }
+.leen-notes__visual figcaption { position: absolute; inset-inline: 1rem; bottom: 1rem; padding: .75rem 1rem; background: rgba(255,253,250,.88); color: var(--leen-ink); font-size: .75rem; }
+.leen-notes__grid { grid-template-columns: minmax(0, 1fr); align-content: center; border-bottom: 0; }
+.leen-note { min-height: auto; padding: 1.35rem .5rem; }
+.leen-note + .leen-note { border-top: 1px solid var(--leen-line); border-right: 0; }
+@media (max-width: 767px) {
+  .leen-hero__grid { grid-template-columns: minmax(0, 1fr); }
+  .leen-hero__visual,
+  .leen-hero__visual img { min-height: 0; }
+  .leen-notes__layout { grid-template-columns: minmax(0, 1fr); }
+  .leen-notes__visual,
+  .leen-notes__visual img { min-height: 0; aspect-ratio: 4 / 3; }
+}
