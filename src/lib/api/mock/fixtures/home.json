@@ -1,0 +1,20 @@
+{
+  "eyebrow": "متجر الثيمات العربي",
+  "title": "ثيم يليق بمتجرك. ويخلّي البداية أسهل.",
+  "subtitle": "اكتشف واجهات عربية مدروسة لمتاجر سلة، شوف المعاينة، وقارن المزايا قبل ما تختار الشكل الأقرب لعلامتك.",
+  "primaryCta": {"label":"اكتشف الثيمات","href":"/themes"},
+  "secondaryCta": {"label":"كيف تعمل نَسَق؟","href":"#how-it-works"},
+  "benefits": [
+    {"title":"شوف قبل ما تختار","description":"معاينات تصميمية توضح شكل المتجر على الشاشات الكبيرة والجوال.","icon":"Eye"},
+    {"title":"تفاصيل واضحة","description":"اعرف المزايا والمتطلبات والملاحظات قبل ما تقرر.","icon":"ScanSearch"},
+    {"title":"تجربة عربية أولًا","description":"واجهات RTL ومحتوى عربي يناسب التاجر والعميل في المنطقة.","icon":"Languages"},
+    {"title":"اختيار على ذوقك","description":"استكشف أنماطًا ومجالات مختلفة وابحث عن الهوية الأقرب لمتجرك.","icon":"SlidersHorizontal"}
+  ],
+  "howItWorks": [
+    {"step":1,"title":"استكشف","description":"ابدأ بالتصنيف أو ابحث عن نمط يناسب نشاطك."},
+    {"step":2,"title":"عاين","description":"افتح صفحة الثيم وشاهد تفاصيل التصميم ومزاياه."},
+    {"step":3,"title":"اختر بهدوء","description":"أضف خياراتك للمفضلة أو السلة وقارن بينها."}
+  ],
+  "featuredThemeIds": ["theme-leen","theme-mada","theme-wameed","theme-ward","theme-qahwa","theme-misk"],
+  "categoryIds": ["cat-fashion","cat-beauty","cat-home","cat-food","cat-electronics","cat-gifts"]
+}

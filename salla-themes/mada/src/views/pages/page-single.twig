@@ -1,0 +1,41 @@
+{#
+| Variable     | Type                  | Description |
+|--------------|-----------------------|-------------|
+| page         | Page                  |             |
+| page.title   | string                |             |
+| page.content | string                |             |
+| page.url     | string                |             |
+| page.slug    | string                |             |
+| page.type    | string                |             |
+#}
+{% extends "layouts.master" %}
+{% block content %}
+    {% if page.type == 'customised' %}
+      {#
+          Hook: information_page.information_page
+          Fires before the main informative page content section.
+          Use this hook to inject custom content or components above the page content area.
+      #}
+      <div class="s-blocks-wrapper s-information-page !mt-0 s-theme-page s-theme-page--mada">{% hook 'information_page.information_page' %}</div>
+    {% else %}
+      <div class="container s-theme-page s-theme-page--mada">
+          <nav class="breadcrumbs w-full py-5">
+              <salla-breadcrumb></salla-breadcrumb>
+          </nav>
+
+          <div class="flex justify-center">
+              <article class="content content--single-page s-theme-page__card w-full lg:w-10/12" data-testid="store-page-content">
+                  <header class="s-theme-page__header">
+                      {% if store.name %}<p class="s-theme-page__eyebrow">{{ store.name|striptags }}</p>{% endif %}
+                      <h1 class="s-theme-page__title">{{ page.title|striptags }}</h1>
+                  </header>
+                  {% set page_content = page.content|replace({'</p>': "\n\n", '</h1>': "\n\n", '</h2>': "\n\n", '</h3>': "\n\n", '</li>': "\n", '<br>': "\n", '<br/>': "\n", '<br />': "\n"})|striptags %}
+                  <div class="content-entry s-theme-page__body">{{ page_content }}</div>
+                  <div class="s-theme-page__comments">
+                      <salla-comments data-testid="store-page-comments" item-id="{{ page.id }}" type="page"></salla-comments>
+                  </div>
+              </article>
+          </div>
+      </div>
+    {% endif %}
+{% endblock %}

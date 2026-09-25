@@ -1,0 +1,45 @@
+{#
+| Variable              | Type     | Description                                   |
+|-----------------------|----------|-----------------------------------------------|
+| component             | object   | Merchant-editable settings from twilight.json |
+| component.eyebrow     | string   | Optional introductory label                   |
+| component.title       | string   | Section heading                               |
+| component.description | string   | Supporting copy                               |
+| component.steps       | object[] | Three or four editable routine steps          |
+| componentId           | string   | Twilight component identifier                 |
+#}
+{% set steps_eyebrow = component.eyebrow|default(trans('blocks.mada.steps_eyebrow')) %}
+{% set steps_title = component.title|default(trans('blocks.mada.steps_title')) %}
+{% set steps_description = component.description|default(trans('blocks.mada.steps_description')) %}
+
+<section component-id="{{ componentId }}" data-testid="store-home-mada-routine-steps" class="s-block mada-steps">
+    <div class="container">
+        <div class="mada-steps__intro">
+            <p class="mada-steps__eyebrow">{{ steps_eyebrow }}</p>
+            <h2>{{ steps_title }}</h2>
+            {% if steps_description %}
+                <p>{{ steps_description }}</p>
+            {% endif %}
+        </div>
+
+        <div class="mada-steps__layout">
+            <figure class="mada-steps__visual">
+                <img src="{{ 'images/mada-story.jpg'|asset }}" alt="{{ trans('blocks.mada.steps_image_alt') }}" width="1280" height="854" loading="lazy">
+                <figcaption>{{ trans('blocks.mada.steps_image_caption') }}</figcaption>
+            </figure>
+            <div class="mada-steps__grid">
+            {% for step in component.steps %}
+                {% if step.title or step.description %}
+                    <article class="mada-step">
+                        <span class="mada-step__index" aria-hidden="true">0{{ loop.index }}</span>
+                        <h3>{{ step.title }}</h3>
+                        {% if step.description %}
+                            <p>{{ step.description }}</p>
+                        {% endif %}
+                    </article>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

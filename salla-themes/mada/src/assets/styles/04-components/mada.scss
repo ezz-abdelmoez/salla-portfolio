@@ -1,0 +1,399 @@
+/* Mada — a clean, modern visual system for beauty and personal-care stores. */
+:root {
+  --mada-ink: #1d332d;
+  --mada-paper: #f4f6f1;
+  --mada-paper-deep: #e7ece5;
+  --mada-muted: #66736d;
+  --mada-line: rgba(29, 51, 45, 0.14);
+  --mada-accent: #758b79;
+  --mada-radius: 0.5rem;
+}
+
+body {
+  color: var(--mada-ink);
+  background: #fff;
+}
+
+.store-header {
+  background: #fff;
+  border-bottom: 1px solid var(--mada-line);
+}
+
+.store-header .main-nav-container {
+  box-shadow: none;
+}
+
+.store-header .top-navbar {
+  border-bottom: 1px solid var(--mada-line);
+}
+
+.navbar-brand img {
+  max-height: 46px;
+}
+
+/* Campaign hero */
+.mada-hero {
+  padding-block: clamp(1.25rem, 3vw, 2.75rem) clamp(2.5rem, 6vw, 5.5rem);
+  background: #fff;
+}
+
+.mada-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  overflow: hidden;
+  background: var(--mada-paper);
+}
+
+.mada-hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(2rem, 6vw, 6.5rem);
+}
+
+.mada-hero__eyebrow,
+.mada-steps__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1.25rem;
+  color: var(--mada-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.mada-hero__eyebrow span {
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.mada-hero__title {
+  max-width: 12ch;
+  margin: 0;
+  color: var(--mada-ink);
+  font-size: clamp(2.35rem, 4.8vw, 4.8rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+}
+
+.mada-hero__description {
+  max-width: 31rem;
+  margin: 1.25rem 0 0;
+  color: var(--mada-muted);
+  font-size: clamp(0.95rem, 1.15vw, 1.08rem);
+  line-height: 1.95;
+}
+
+.mada-button {
+  display: inline-flex;
+  min-height: 3.15rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.9rem;
+  padding: 0.8rem 1.35rem;
+  border: 1px solid var(--mada-ink);
+  border-radius: 0.25rem;
+  background: var(--mada-ink);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.mada-button:hover,
+.mada-button:focus-visible {
+  transform: translateY(-2px);
+  background: transparent;
+  color: var(--mada-ink);
+}
+
+.mada-button:focus-visible {
+  outline: 2px solid var(--mada-accent);
+  outline-offset: 3px;
+}
+
+.mada-button__arrow {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.mada-hero__footnote {
+  margin: 1rem 0 0;
+  color: var(--mada-muted);
+  font-size: 0.75rem;
+}
+
+.mada-hero__visual {
+  position: relative;
+  min-height: 34rem;
+  margin: 0;
+  overflow: hidden;
+  background: var(--mada-paper-deep);
+}
+
+.mada-hero__visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 34rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mada-hero__visual::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  content: "";
+  pointer-events: none;
+}
+
+.mada-hero__caption {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--mada-ink);
+  font-size: 0.72rem;
+  backdrop-filter: blur(8px);
+}
+
+.mada-hero__seal {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  display: grid;
+  width: 4.5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--mada-ink);
+  font-size: 0.64rem;
+  text-align: center;
+}
+
+/* Merchant-configurable routine steps */
+.mada-steps {
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+  background: var(--mada-paper);
+}
+
+.mada-steps__intro {
+  max-width: 45rem;
+  margin: 0 auto clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+}
+
+.mada-steps__eyebrow {
+  justify-content: center;
+  margin-bottom: 0.85rem;
+}
+
+.mada-steps__intro h2 {
+  margin: 0;
+  color: var(--mada-ink);
+  font-size: clamp(1.8rem, 3.1vw, 2.85rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.3;
+}
+
+.mada-steps__intro > p:last-child {
+  max-width: 36rem;
+  margin: 1rem auto 0;
+  color: var(--mada-muted);
+  line-height: 1.9;
+}
+
+.mada-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.mada-step {
+  min-height: 15rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--mada-line);
+  border-radius: var(--mada-radius);
+  background: #fff;
+}
+
+.mada-step__index {
+  display: inline-grid;
+  width: 2.5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  margin-bottom: 2rem;
+  border: 1px solid var(--mada-line);
+  border-radius: 50%;
+  color: var(--mada-accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.mada-step h3 {
+  margin: 0;
+  color: var(--mada-ink);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.mada-step p {
+  max-width: 22rem;
+  margin: 0.75rem 0 0;
+  color: var(--mada-muted);
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+/* Product browsing stays native to Salla; the theme applies a clean, consistent art direction. */
+.s-product-card-entry {
+  border: 1px solid var(--mada-line);
+  border-radius: var(--mada-radius);
+  background: #fff;
+  box-shadow: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.s-product-card-entry:hover {
+  transform: translateY(-2px);
+  border-color: rgba(29, 51, 45, 0.28);
+  box-shadow: 0 12px 28px rgba(29, 51, 45, 0.07);
+}
+
+.s-product-card-image {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--mada-radius) var(--mada-radius) 0 0;
+  background: var(--mada-paper-deep);
+}
+
+.s-product-card-image img {
+  object-fit: cover;
+}
+
+.s-product-card-content-title a {
+  color: var(--mada-ink);
+  font-weight: 500;
+}
+
+.s-product-card-sale-price h4,
+.s-product-card-starting-price h4 {
+  color: var(--mada-ink);
+}
+
+.product-single .product__description,
+.product-single .product-entry__sub-title {
+  color: var(--mada-muted);
+}
+
+.product-single [data-testid="store-product-title"] {
+  color: var(--mada-ink);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.store-footer {
+  color: #f4f6f1;
+}
+
+.store-footer__inner {
+  background: #1d332d;
+}
+
+.store-footer__inner a,
+.store-footer__inner h3 {
+  color: inherit;
+}
+
+@media (max-width: 767px) {
+  .mada-hero {
+    padding-top: 0.75rem;
+  }
+
+  .mada-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mada-hero__copy {
+    padding: 2.3rem 1.5rem 2.6rem;
+  }
+
+  .mada-hero__title {
+    max-width: 13ch;
+    font-size: clamp(2.35rem, 10.5vw, 3.45rem);
+  }
+
+  .mada-hero__visual,
+  .mada-hero__visual img {
+    min-height: 0;
+  }
+
+  .mada-hero__visual img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .mada-steps__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mada-step {
+    min-height: 0;
+    padding: 1.5rem;
+  }
+
+  .mada-step__index {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mada-button,
+  .s-product-card-entry {
+    transition: none;
+  }
+}
+
+.theme-landing--mada,
+.s-theme-page--mada {
+  --page-ink: var(--mada-ink);
+  --page-paper: var(--mada-paper);
+  --page-muted: var(--mada-muted);
+  --page-line: var(--mada-line);
+  --page-radius: var(--mada-radius);
+}
+
+/* Mada uses a soft apothecary silhouette and a vertical routine timeline. */
+.mada-hero__grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); border-radius: 1.5rem .25rem 1.5rem .25rem; }
+.mada-hero__visual { align-self: center; min-height: 30rem; margin: 1.25rem; border-radius: 46% 46% .35rem .35rem; }
+.mada-hero__visual img { min-height: 30rem; border-radius: inherit; }
+.mada-steps__layout { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: center; gap: clamp(1rem, 3vw, 2.5rem); }
+.mada-steps__visual { position: relative; min-height: 26rem; margin: 0; overflow: hidden; border-radius: 48% 48% .5rem .5rem; background: var(--mada-paper-deep); }
+.mada-steps__visual img { display: block; width: 100%; height: 100%; min-height: 26rem; object-fit: cover; }
+.mada-steps__visual figcaption { position: absolute; inset-inline: 1rem; bottom: 1rem; padding: .75rem 1rem; border-radius: .4rem; background: rgba(255,255,255,.88); color: var(--mada-ink); font-size: .75rem; }
+.mada-steps__grid { grid-template-columns: minmax(0, 1fr); gap: .75rem; }
+.mada-step { display: grid; grid-template-columns: 2.5rem 1fr; align-items: start; gap: .25rem .9rem; min-height: 0; padding: 1.15rem; }
+.mada-step__index { grid-row: span 2; margin: 0; background: var(--mada-paper); }
+.mada-step p { margin-top: .3rem; }
+@media (max-width: 767px) {
+  .mada-hero__grid { grid-template-columns: minmax(0, 1fr); }
+  .mada-hero__visual,
+  .mada-hero__visual img { min-height: 0; }
+  .mada-steps__layout { grid-template-columns: minmax(0, 1fr); }
+  .mada-steps__visual,
+  .mada-steps__visual img { min-height: 0; aspect-ratio: 4 / 3; }
+}

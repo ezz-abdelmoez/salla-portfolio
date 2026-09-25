@@ -1,0 +1,48 @@
+{
+  "blocks": {
+    "header": {
+      "cart": "السلة"
+    },
+    "appBanner": {
+      "download_now": "حمله الآن"
+    },
+    "leen": {
+      "hero_eyebrow": "إصدار الموسم",
+      "hero_title": "عباياتٌ تُشبه حضورك",
+      "hero_description": "قصّات انسيابية وخامات منتقاة، صُممت لترافق يومك بتفاصيل هادئة وواثقة.",
+      "hero_image_alt": "عباءة سوداء بتطريز هادئ في مساحة دافئة",
+      "hero_cta": "اكتشفي المجموعة",
+      "hero_note": "تصاميم مختارة بعناية لتفاصيل يومك.",
+      "hero_caption": "تفاصيل تنساب بهدوء",
+      "hero_seal": "اختيار لِين",
+      "notes_eyebrow": "ملاحظات لِين",
+      "notes_title": "تفاصيل تشعرين بها قبل أن تريها",
+      "notes_description": "مساحة تحريرية قابلة للتخصيص لتوضيح ما يميز القصّة والخامة والعناية في متجرك.",
+      "note_title": "عنوان التفصيل",
+      "note_description": "وصف مختصر للتفصيل",
+      "campaign_eyebrow": "حملة لِين",
+      "notes_image_alt": "ثلاث عبايات بألوان داكنة ومحايدة في استوديو دافئ",
+      "notes_image_caption": "مختارات الموسم · صورة تجريبية"
+    }
+  },
+  "pages": {
+    "cart": {
+      "cart_options": "خيارات السلة"
+    },
+    "products": {
+      "barcode": "الباركود"
+    },
+    "order": {
+      "can_edit_or_delete_your_review_within": "يمكنك تعديل أو حذف تقييمك خلال",
+      "edit_period_ended": "تم انتهاء المدة المحددة لتعديل التقييم",
+      "delete_period_ended": "تم انتهاء المدة المحددة لحذف التقييم",
+      "days_since_added": "أيام من إضافته",
+      "option_name": "الخيار",
+      "option_content": "المحتوى"
+    }
+  },
+  "common": {
+    "bank_offer_sub_title_multiple": "ادفع قيمة مشترياتك عبر إحدى البطاقات البنكية التالية واحصل على الخصم المحدد",
+    "bank_offer_sub_title_single": "ادفع قيمة مشترياتك عبر بطاقة بنك :bank_name واحصل على الخصم المحدد"
+  }
+}

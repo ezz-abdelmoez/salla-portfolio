@@ -1,0 +1,45 @@
+{#
+| Variable              | Type     | Description                                   |
+|-----------------------|----------|-----------------------------------------------|
+| component             | object   | Merchant-editable settings from twilight.json |
+| component.eyebrow     | string   | Optional introductory label                    |
+| component.title       | string   | Section heading                                |
+| component.description | string   | Supporting copy                                |
+| component.notes       | object[] | Two or three editable fit and fabric notes     |
+| componentId           | string   | Twilight component identifier                  |
+#}
+{% set notes_eyebrow = component.eyebrow|default(trans('blocks.leen.notes_eyebrow')) %}
+{% set notes_title = component.title|default(trans('blocks.leen.notes_title')) %}
+{% set notes_description = component.description|default(trans('blocks.leen.notes_description')) %}
+
+<section component-id="{{ componentId }}" data-testid="store-home-leen-fit-notes" class="s-block leen-notes">
+    <div class="container">
+        <div class="leen-notes__intro">
+            <p class="leen-notes__eyebrow">{{ notes_eyebrow }}</p>
+            <h2>{{ notes_title }}</h2>
+            {% if notes_description %}
+                <p>{{ notes_description }}</p>
+            {% endif %}
+        </div>
+
+        <div class="leen-notes__layout">
+            <figure class="leen-notes__visual">
+                <img src="{{ 'images/leen-story.jpg'|asset }}" alt="{{ trans('blocks.leen.notes_image_alt') }}" width="1280" height="854" loading="lazy">
+                <figcaption>{{ trans('blocks.leen.notes_image_caption') }}</figcaption>
+            </figure>
+            <div class="leen-notes__grid">
+            {% for note in component.notes %}
+                {% if note.title or note.description %}
+                    <article class="leen-note">
+                        <span class="leen-note__index" aria-hidden="true">0{{ loop.index }}</span>
+                        <h3>{{ note.title }}</h3>
+                        {% if note.description %}
+                            <p>{{ note.description }}</p>
+                        {% endif %}
+                    </article>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

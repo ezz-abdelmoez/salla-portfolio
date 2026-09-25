@@ -1,0 +1,29 @@
+
+// Colors
+$main-color: var(--color-primary);
+$infinte-color: var(--infinte-color);
+$main-text-color: var(--main-text-color);
+
+:root {
+  --infinte-color: #c9c9c9;
+  --main-text-color: #30231d;
+  --main-text-color-dark: #271b16;
+
+  /* Qahwa's espresso, roasted caramel, and warm paper palette. */
+  --color-primary: #7b4e2f;
+  --color-primary-d: #56351f;
+  --color-primary-l: #bb8758;
+  --color-primary-reverse: #ffffff;
+  --color-text: #75685e;
+  --bg-gray: #56351f0d;
+  --color-grey: #f6f0e7;
+  --color-light-grey: #ede0cd;
+
+  /* font-size */
+  --font-sm: 0.8685714286rem;
+  /* font-family: ; */
+  --font-main: "DINNextLTArabic";
+
+  /* plugins */
+  --mm-ocd-width: calc(100% - 51px);
+}

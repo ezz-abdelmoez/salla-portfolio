@@ -1,0 +1,46 @@
+{#
+| Variable                  | Type     | Description                                    |
+|---------------------------|----------|------------------------------------------------|
+| component                 | object   | Merchant-editable settings from twilight.json |
+| component.eyebrow         | string   | Optional introductory label                    |
+| component.title           | string   | Section heading                                |
+| component.description     | string   | Supporting copy                                |
+| component.items           | object[] | Three or four editable coffee details          |
+| componentId               | string   | Twilight component identifier                  |
+#}
+{% set notes_eyebrow = component.eyebrow|default(trans('blocks.qahwa.notes_eyebrow')) %}
+{% set notes_title = component.title|default(trans('blocks.qahwa.notes_title')) %}
+{% set notes_description = component.description|default(trans('blocks.qahwa.notes_description')) %}
+
+<section component-id="{{ componentId }}" data-testid="store-home-qahwa-roast-notes" class="s-block qahwa-notes">
+    <div class="container">
+        <div class="qahwa-notes__intro">
+            <p class="qahwa-notes__eyebrow">{{ notes_eyebrow }}</p>
+            <h2>{{ notes_title }}</h2>
+            {% if notes_description %}
+                <p>{{ notes_description }}</p>
+            {% endif %}
+        </div>
+
+        <div class="qahwa-notes__layout">
+            <figure class="qahwa-notes__visual">
+                <img src="{{ 'images/qahwa-story.jpg'|asset }}" alt="{{ trans('blocks.qahwa.notes_image_alt') }}" width="1280" height="854" loading="lazy">
+                <figcaption>{{ trans('blocks.qahwa.notes_image_caption') }}</figcaption>
+            </figure>
+            <div class="qahwa-notes__grid">
+            {% for item in component.items %}
+                {% if item.title or item.description %}
+                    <article class="qahwa-note">
+                        <span class="qahwa-note__index" aria-hidden="true">0{{ loop.index }}</span>
+                        <h3>{{ item.title }}</h3>
+                        {% if item.description %}
+                            <p>{{ item.description }}</p>
+                        {% endif %}
+                        <span class="qahwa-note__mark" aria-hidden="true">✳</span>
+                    </article>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

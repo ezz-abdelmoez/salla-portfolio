@@ -1,0 +1,48 @@
+{
+  "blocks": {
+    "header": {
+      "cart": "Cart"
+    },
+    "appBanner": {
+      "download_now": "Download now"
+    },
+    "mada": {
+      "hero_eyebrow": "Everyday skin care",
+      "hero_title": "Balanced care, made simple",
+      "hero_description": "Explore the products in your store and review the details and ingredients your brand provides.",
+      "hero_image_alt": "A curated skin-care set arranged on pale stone",
+      "hero_cta": "Explore skin care",
+      "hero_note": "Clear details to help you choose.",
+      "hero_caption": "Care begins with the details",
+      "hero_seal": "The Mada edit",
+      "steps_eyebrow": "Your routine, at your pace",
+      "steps_title": "Three steps, room for your own choices",
+      "steps_description": "Edit these cards to explain how to use your products, without unsupported treatment promises or claims.",
+      "step_title": "Step title",
+      "step_description": "A short description of this step",
+      "campaign_eyebrow": "Mada campaign",
+      "steps_image_alt": "Skincare products on pale sage stone",
+      "steps_image_caption": "Care routine · Sample imagery"
+    }
+  },
+  "pages": {
+    "cart": {
+      "cart_options": "Cart Options"
+    },
+    "products": {
+      "barcode": "Barcode"
+    },
+    "order": {
+      "can_edit_or_delete_your_review_within": "You can edit or delete your review within",
+      "edit_period_ended": "The period to edit the review has ended",
+      "delete_period_ended": "The period to delete the review has ended",
+      "days_since_added": "days since it was added",
+      "option_name": "Option name",
+      "option_content": "Content"
+    }
+  },
+  "common": {
+    "bank_offer_sub_title_multiple": "Pay for your purchases with one of the following bank cards and get the stated discount.",
+    "bank_offer_sub_title_single": "Pay for your purchases with :bank_name and get the stated discount."
+  }
+}

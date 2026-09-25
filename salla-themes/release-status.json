@@ -1,0 +1,32 @@
+{
+  "partnerPortal": {
+    "accountReady": false,
+    "previewStoreAvailable": false
+  },
+  "themes": {
+    "leen": {
+      "previewPassed": false,
+      "sallaReviewApproved": false
+    },
+    "mada": {
+      "previewPassed": false,
+      "sallaReviewApproved": false
+    },
+    "wameed": {
+      "previewPassed": false,
+      "sallaReviewApproved": false
+    },
+    "ward": {
+      "previewPassed": false,
+      "sallaReviewApproved": false
+    },
+    "qahwa": {
+      "previewPassed": false,
+      "sallaReviewApproved": false
+    },
+    "misk": {
+      "previewPassed": false,
+      "sallaReviewApproved": false
+    }
+  }
+}

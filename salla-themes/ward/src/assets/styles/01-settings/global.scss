@@ -1,0 +1,29 @@
+
+// Colors
+$main-color: var(--color-primary);
+$infinte-color: var(--infinte-color);
+$main-text-color: var(--main-text-color);
+
+:root {
+  --infinte-color: #c9c9c9;
+  --main-text-color: #3d2b32;
+  --main-text-color-dark: #542c3a;
+
+  /* Ward's warm ivory, berry, and muted rose palette. */
+  --color-primary: #754253;
+  --color-primary-d: #542c3a;
+  --color-primary-l: #b66d77;
+  --color-primary-reverse: #ffffff;
+  --color-text: #77676a;
+  --bg-gray: #542c3a0d;
+  --color-grey: #faf6f2;
+  --color-light-grey: #f1e4df;
+
+  /* font-size */
+  --font-sm: 0.8685714286rem;
+  /* font-family: ; */
+  --font-main: "DINNextLTArabic";
+
+  /* plugins */
+  --mm-ocd-width: calc(100% - 51px);
+}

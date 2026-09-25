@@ -1,0 +1,42 @@
+{#
+| Variable                  | Type     | Description                                    |
+|---------------------------|----------|------------------------------------------------|
+| component                 | object   | Merchant-editable settings from twilight.json |
+| component.eyebrow         | string   | Optional introductory label                    |
+| component.title           | string   | Section heading                                |
+| component.description     | string   | Supporting copy                                |
+| component.items           | object[] | Three or four editable technology highlights   |
+| componentId               | string   | Twilight component identifier                  |
+#}
+{% set pillars_eyebrow = component.eyebrow|default(trans('blocks.wameed.pillars_eyebrow')) %}
+{% set pillars_title = component.title|default(trans('blocks.wameed.pillars_title')) %}
+{% set pillars_description = component.description|default(trans('blocks.wameed.pillars_description')) %}
+
+<section component-id="{{ componentId }}" data-testid="store-home-wameed-tech-pillars" class="s-block wameed-pillars">
+    <div class="container">
+        <div class="wameed-pillars__intro">
+            <p class="wameed-pillars__eyebrow">{{ pillars_eyebrow }}</p>
+            <h2>{{ pillars_title }}</h2>
+            {% if pillars_description %}
+                <p>{{ pillars_description }}</p>
+            {% endif %}
+        </div>
+
+        <div class="wameed-pillars__visual">
+            <img src="{{ 'images/wameed-story.jpg'|asset }}" alt="{{ trans('blocks.wameed.pillars_image_alt') }}" width="1280" height="854" loading="lazy">
+            <div class="wameed-pillars__grid">
+            {% for item in component.items %}
+                {% if item.title or item.description %}
+                    <article class="wameed-pillar">
+                        <span class="wameed-pillar__index" aria-hidden="true">0{{ loop.index }}</span>
+                        <h3>{{ item.title }}</h3>
+                        {% if item.description %}
+                            <p>{{ item.description }}</p>
+                        {% endif %}
+                    </article>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
