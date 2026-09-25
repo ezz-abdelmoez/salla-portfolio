@@ -351,3 +351,12 @@ body {
     transition: none;
   }
 }
+
+.theme-landing--misk,
+.s-theme-page--misk {
+  --page-ink: var(--misk-ink);
+  --page-paper: var(--misk-paper);
+  --page-muted: var(--misk-muted);
+  --page-line: var(--misk-line);
+  --page-radius: var(--misk-radius);
+}

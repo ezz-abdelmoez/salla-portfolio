@@ -31,6 +31,9 @@ const locales = {
 
 const requiredPaths = [
   `src/assets/styles/04-components/${slug}.scss`,
+  'src/assets/styles/04-components/landing-pages.scss',
+  'src/views/pages/landing-page.twig',
+  'src/views/pages/page-single.twig',
   'src/views/components/home/custom-testimonials.twig',
   `src/assets/images/${slug}-editorial.jpg`,
   `public/images/${slug}-editorial.jpg`,
@@ -132,6 +135,61 @@ try {
 if (!appStyles.includes(`./04-components/${slug}`)) {
   failures.push(`src/assets/styles/app.scss must import the ${slug} component styles.`);
 }
+if (!appStyles.includes("./04-components/landing-pages")) {
+  failures.push('src/assets/styles/app.scss must import the campaign and merchant-page styles.');
+}
+
+let compiledCss = '';
+try {
+  compiledCss = await readFile(path.join(root, 'public/app.css'), 'utf8');
+} catch {
+  // The missing file is reported by the required-path check above.
+}
+for (const selector of ['.theme-landing__hero', '.s-theme-page__body']) {
+  if (!compiledCss.includes(selector)) failures.push(`public/app.css is missing compiled page styles for ${selector}.`);
+}
+
+let landingTemplate = '';
+let singlePageTemplate = '';
+try {
+  landingTemplate = await readFile(path.join(root, 'src/views/pages/landing-page.twig'), 'utf8');
+  singlePageTemplate = await readFile(path.join(root, 'src/views/pages/page-single.twig'), 'utf8');
+} catch {
+  // Missing templates are reported by the required-path check above.
+}
+
+// Salla's landing-page documentation currently says "No schema defined". Keep to fields shown in its Usage / Components examples.
+for (const [field, snippet] of [
+  ['offer expiry state', 'landing.is_expired'],
+  ['included products', 'landing.products'],
+  ['quantity visibility', 'landing.show_quantity'],
+  ['slider product layout', "components.home.products-slider"],
+  ['fixed product layout', "components.home.fixed-products"],
+  ['optional testimonials type', 'landing.testimonials_type'],
+]) {
+  if (!landingTemplate.includes(snippet)) failures.push(`The landing-page template is missing its ${field} handling.`);
+}
+for (const undocumentedField of ['landing.title', 'landing.content', 'landing.offer_ends_at', 'landing.show_store_features']) {
+  if (landingTemplate.includes(undocumentedField)) {
+    failures.push(`Do not rely on ${undocumentedField} until Salla documents the landing-page schema in the page body.`);
+  }
+}
+if (!singlePageTemplate.includes('page.content|replace') || !singlePageTemplate.includes('|striptags')) {
+  failures.push('Merchant-managed page content must be stripped to safe text while preserving block spacing.');
+}
+if (/\{\{\s*page\.content\s*\}\}/.test(singlePageTemplate)) {
+  failures.push('page-single.twig must not output unsanitized merchant HTML directly.');
+}
+
+const pageTranslationPattern = new RegExp(`trans\\(\\s*['\"]blocks\\.${slug}\\.([a-zA-Z0-9_]+)['\"]\\s*\\)`, 'g');
+for (const [, key] of landingTemplate.matchAll(pageTranslationPattern)) {
+  for (const language of ['ar', 'en']) {
+    const value = locales[language]?.blocks?.[slug]?.[key];
+    if (typeof value !== 'string' || !value.trim()) {
+      failures.push(`src/views/pages/landing-page.twig uses missing ${language} translation blocks.${slug}.${key}.`);
+    }
+  }
+}
 
 let testimonialTemplate = '';
 try {
@@ -174,5 +232,5 @@ if (failures.length) {
   const customComponents = (manifest.components ?? []).filter(({ path: componentPath }) =>
     componentPath?.startsWith(`home.${slug}-`),
   );
-  console.log(`Theme checks passed: ${manifest.name.ar} / ${manifest.name.en}; ${customComponents.length} custom components; localized fields and local hero assets verified; no seeded reviews or Twig raw filters.`);
+  console.log(`Theme checks passed: ${manifest.name.ar} / ${manifest.name.en}; ${customComponents.length} custom components; localized fields, landing-page coverage, safe merchant pages, and local hero assets verified; no seeded reviews or Twig raw filters.`);
 }

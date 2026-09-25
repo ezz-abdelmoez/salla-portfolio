@@ -338,3 +338,12 @@ body {
     transition: none;
   }
 }
+
+.theme-landing--wameed,
+.s-theme-page--wameed {
+  --page-ink: var(--wameed-ink);
+  --page-paper: var(--wameed-paper);
+  --page-muted: var(--wameed-muted);
+  --page-line: var(--wameed-line);
+  --page-radius: var(--wameed-radius);
+}

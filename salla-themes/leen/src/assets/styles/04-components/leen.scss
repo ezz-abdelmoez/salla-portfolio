@@ -371,3 +371,12 @@ body {
     transition: none;
   }
 }
+
+.theme-landing--leen,
+.s-theme-page--leen {
+  --page-ink: var(--leen-ink);
+  --page-paper: var(--leen-paper);
+  --page-muted: var(--leen-muted);
+  --page-line: var(--leen-line);
+  --page-radius: var(--leen-radius);
+}

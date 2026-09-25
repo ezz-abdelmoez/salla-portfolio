@@ -1,0 +1,66 @@
+{#
+| Variable                    | Type    | Description                                            |
+|-----------------------------|---------|--------------------------------------------------------|
+| landing                     | object  | Salla campaign/offer page                              |
+| landing.products            | object  | Product payload passed to the documented home blocks   |
+| landing.is_expired          | bool    | Whether the offer has expired                          |
+| landing.is_slider           | bool    | Whether included products use the slider layout        |
+| landing.show_quantity       | bool    | Whether to show product quantity                       |
+| landing.testimonials_type   | ?string | Optional store-testimonials type documented by Salla  |
+#}
+{% extends "layouts.master" %}
+
+{% block content %}
+    {% if not landing %}
+        <section class="container theme-landing theme-landing--misk">
+            <div class="theme-landing__state theme-landing__state--missing" data-testid="store-landing-not-found">
+                <p class="theme-landing__eyebrow">{{ store.name|striptags }}</p>
+                <h1>{{ trans('common.errors.404') }}</h1>
+                <a class="theme-landing__button" href="{{ store.url }}">{{ trans('common.elements.back_home') }}</a>
+            </div>
+        </section>
+    {% elseif landing.is_expired %}
+        <section class="container theme-landing theme-landing--misk">
+            <nav class="breadcrumbs w-full py-5"><salla-breadcrumb></salla-breadcrumb></nav>
+            <div class="theme-landing__state theme-landing__state--expired" data-testid="store-landing-expired">
+                <p class="theme-landing__eyebrow">{{ trans('blocks.misk.campaign_eyebrow') }}</p>
+                <h1>{{ trans('pages.offer.offer_finished') }}</h1>
+                <p>{{ trans('pages.offer.offer_expired_message') }}</p>
+                <a class="theme-landing__button" href="{{ store.url }}">{{ trans('common.elements.back_home') }}</a>
+            </div>
+        </section>
+    {% else %}
+        <section class="container theme-landing theme-landing--misk" data-testid="store-landing-page">
+            <nav class="breadcrumbs w-full py-5"><salla-breadcrumb></salla-breadcrumb></nav>
+
+            <header class="theme-landing__hero">
+                <div class="theme-landing__copy">
+                    <p class="theme-landing__eyebrow">{{ trans('blocks.misk.campaign_eyebrow') }}</p>
+                    <h1 class="theme-landing__title">{{ trans('pages.offer.included_products') }}</h1>
+                    {% if landing.products is not empty %}
+                        <a class="theme-landing__button" href="#landing-products">{{ trans('pages.offer.included_products') }} <span aria-hidden="true">↙</span></a>
+                    {% endif %}
+                </div>
+                <div class="theme-landing__art" aria-hidden="true"><span></span><i></i></div>
+            </header>
+
+            {% if landing.products is not empty %}
+                {% set products = landing.products %}
+                {% set hide_add_btn = true %}
+                {% set show_quantity = landing.show_quantity %}
+                {% set title = trans('pages.offer.included_products') %}
+                <div id="landing-products" class="theme-landing__products">
+                    {% if landing.is_slider %}
+                        {% include 'components.home.products-slider' %}
+                    {% else %}
+                        {% include 'components.home.fixed-products' %}
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {% if landing.testimonials_type %}
+                {% component 'home.testimonials' with{type: landing.testimonials_type} %}
+            {% endif %}
+        </section>
+    {% endif %}
+{% endblock %}

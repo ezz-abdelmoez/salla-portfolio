@@ -359,3 +359,12 @@ body {
     transition: none;
   }
 }
+
+.theme-landing--ward,
+.s-theme-page--ward {
+  --page-ink: var(--ward-ink);
+  --page-paper: var(--ward-paper);
+  --page-muted: var(--ward-muted);
+  --page-line: var(--ward-line);
+  --page-radius: var(--ward-radius);
+}

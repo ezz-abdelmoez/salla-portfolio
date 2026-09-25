@@ -351,3 +351,12 @@ body {
     transition: none;
   }
 }
+
+.theme-landing--qahwa,
+.s-theme-page--qahwa {
+  --page-ink: var(--qahwa-ink);
+  --page-paper: var(--qahwa-paper);
+  --page-muted: var(--qahwa-muted);
+  --page-line: var(--qahwa-line);
+  --page-radius: var(--qahwa-radius);
+}

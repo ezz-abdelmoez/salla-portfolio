@@ -367,3 +367,12 @@ body {
     transition: none;
   }
 }
+
+.theme-landing--mada,
+.s-theme-page--mada {
+  --page-ink: var(--mada-ink);
+  --page-paper: var(--mada-paper);
+  --page-muted: var(--mada-muted);
+  --page-line: var(--mada-line);
+  --page-radius: var(--mada-radius);
+}
